@@ -2,24 +2,24 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #d21404;
+    background-color: #ec1b23;
     font-family: 'Noto Kufi Arabic', sans-serif;
 }
 
-.main {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.logos {
+    margin: 5vh 0 10vh;
 }
 
-.section .divlogo {
+.logose,
+.divlogo {
     text-align: center;
-    margin-bottom: 1vh;
 }
 
-.section .logo {
+.logo2 {
+    width: 200px;
+}
+
+.logo {
     width: 550px;
 }
 
@@ -36,7 +36,6 @@ h3 {
     font-size: 1.8rem;
     color: whitesmoke;
     font-weight: 400;
-    margin-top: -2.5%;
 }
 
 h4 {
@@ -44,7 +43,6 @@ h4 {
     font-size: 1.6rem;
     color: whitesmoke;
     font-weight: 400;
-    margin-top: -0.7%;
 }
 
 .social {
@@ -74,7 +72,12 @@ h4 {
 
 @media (max-width:1600px) {
 
-    .section .logo {
+
+    .logo2 {
+        width: 180px;
+    }
+
+    .logo {
         width: 500px;
     }
 
@@ -104,7 +107,12 @@ h4 {
 
 @media (max-width:1100px) {
 
-    .section .logo {
+
+    .logo2 {
+        width: 160px;
+    }
+
+    .logo {
         width: 430px;
     }
 
@@ -134,7 +142,11 @@ h4 {
 
 @media (max-width:900px) {
 
-    .section .logo {
+    .logo2 {
+        width: 150px;
+    }
+
+    .logo {
         width: 380px;
     }
 
@@ -144,12 +156,12 @@ h4 {
     }
 
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 400;
     }
 
     h4 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 400;
     }
 
@@ -164,7 +176,11 @@ h4 {
 
 @media (max-width:650px) {
 
-    .section .logo {
+    .logo2 {
+        width: 140px;
+    }
+
+    .logo {
         width: 330px;
     }
 
@@ -194,7 +210,11 @@ h4 {
 
 @media (max-width:490px) {
 
-    .section .logo {
+    .logo2 {
+        width: 130px;
+    }
+
+    .logo {
         width: 280px;
     }
 
@@ -204,12 +224,12 @@ h4 {
     }
 
     h3 {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 400;
     }
 
     h4 {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 400;
     }
 
@@ -224,7 +244,11 @@ h4 {
 
 @media (max-width:400px) {
 
-    .section .logo {
+    .logo2 {
+        width: 130px;
+    }
+
+    .logo {
         width: 250px;
     }
 
@@ -234,12 +258,12 @@ h4 {
     }
 
     h3 {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 400;
     }
 
     h4 {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 400;
     }
 
