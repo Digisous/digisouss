@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Noto+Kufi+Arabic:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>DIGI SOUSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body>
+    <div class="main">
+        <div class="section">
+            <div class="divlogo"><img class="logo" src="images/logo.png" alt="logo"></div>
+            <h2>... قريبا</h2>
+            <h3>أهلا و مرحبا بك في موقع ديجي سوس , الموقع قيد الانشاء</h3>
+            <h4>تواصلوا معنا الان</h4>
+
+            <div class="social">
+                <a href="https://web.facebook.com/digisouss" target="_blank"><img id="face" class="soc"
+                        src="images/face.png" alt="instagram"></a>
+                <a href="https://www.instagram.com/digisouss" target="_blank"><img id="inst" class="soc"
+                        src="images/insta.png" alt="instagram"></a>
+                <a href="https://api.whatsapp.com/send/?phone=212672675047" target="_blank"><img id="whats" class="soc"
+                        src="images/whats.png" alt="whatsapp"></a>
+                <a href="#" target="_blank" title="Ait Melloul"><img id="gps" class="soc" src="images/location.png"
+                        alt="gps"></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let a = document.getElementById("face");
+        let b = document.getElementById("inst");
+        let c = document.getElementById("whats");
+        let d = document.getElementById("gps");
+        a.onmouseenter = function () {
+            a.src = "images/face2.png";
+        }
+        a.onmouseleave = function () {
+            a.src = "images/face.png";
+        }
+        b.onmouseenter = function () {
+            b.src = "images/insta2.png";
+        }
+        b.onmouseleave = function () {
+            b.src = "images/insta.png";
+        }
+        c.onmouseenter = function () {
+            c.src = "images/whats2.png";
+        }
+        c.onmouseleave = function () {
+            c.src = "images/whats.png";
+        }
+        d.onmouseenter = function () {
+            d.src = "images/location2.png";
+        }
+        d.onmouseleave = function () {
+            d.src = "images/location.png";
+        }
+    </script>
+</body>
+
+</html>
