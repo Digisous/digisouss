@@ -23,6 +23,10 @@ body {
     width: 550px;
 }
 
+.section {
+    margin-top: -50px;
+}
+
 h2 {
     margin-top: -0.8%;
     text-align: center;
@@ -150,10 +154,6 @@ h4 {
 
     h3 {
         font-size: 1.3rem;
-    }
-
-    h4 {
-        font-size: 1.2rem;
     }
 
     .social .soc {
