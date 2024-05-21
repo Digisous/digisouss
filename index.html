@@ -1,156 +1,76 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة طلب المنتج WD-0408</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #ece9e6, #ffffff);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            background: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .header {
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            color: #333;
-        }
-        .header img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        .product-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .product-details {
-            flex: 1;
-            padding: 20px;
-            min-width: 300px;
-        }
-        .product-details h2 {
-            font-size: 2em;
-            color: #444;
-            margin-bottom: 10px;
-        }
-        .product-details p {
-            font-size: 1.2em;
-            color: #666;
-            line-height: 1.6;
-        }
-        .product-details ul {
-            list-style: none;
-            padding: 0;
-        }
-        .product-details ul li {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        .product-image {
-            flex: 1;
-            padding: 20px;
-            min-width: 300px;
-        }
-        .product-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .order-form {
-            margin-top: 30px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .order-form h2 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .order-form input,
-        .order-form button {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 1em;
-        }
-        .order-form button {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .order-form button:hover {
-            background-color: #218838;
-        }
-        @media (max-width: 768px) {
-            .product-info {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>احصل على منتج WD-0408 الآن!</h1>
-            <img src="images/TemplateProduct (1).jpg" alt="WD-0408">
-        </div>
-        <div class="product-info">
-            <div class="product-details">
-                <h2>مميزات المنتج</h2>
-                <p>WD-0408 هو منتج عالي الجودة متعدد الاستخدامات. مناسب للاستخدام اليومي ويوفر أداءً متميزاً بفضل تصميمه المتطور.</p>
-                <h3>المواصفات:</h3>
-                <ul>
-                    <li>التصميم: أنيق وعصري</li>
-                    <li>الأداء: عالي الكفاءة</li>
-                    <li>الاستخدام: متعدد</li>
-                    <li>الجودة: مضمونة</li>
-                </ul>
-            </div>
-            <div class="product-image">
-                <img src="images/TemplateProduct (2).jpg" alt="WD-0408">
+    <header class="hero-section">
+        <nav class="navbar">
+            <div class="logo">Logo</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Meet Your Future Goals with Mutual Funds</h1>
+            <p>Invest in the best Equity Linked Savings Scheme to save taxes. Grow your money by investing in our best Mutual Funds.</p>
+            <div class="hero-buttons">
+                <button>Save Taxes</button>
+                <button>Grow Money</button>
             </div>
         </div>
-        <div class="product-image">
-            <img src="images/TemplateProduct.jpg" alt="WD-0408">
+    </header>
+    <section class="features-section">
+        <div class="feature">
+            <div class="icon">🌳</div>
+            <h3>Flexible and Easy to Monitor</h3>
+            <p>Enjoy flexibility in monitoring and managing your funds at ease.</p>
         </div>
-        <div class="order-form">
-            <h2>اطلب المنتج الآن</h2>
-            <form id="orderForm">
-                <input type="text" id="name" placeholder="الاسم" required>
-                <input type="tel" id="phone" placeholder="رقم الهاتف" required>
-                <input type="text" id="address" placeholder="العنوان" required>
-                <button type="submit">إرسال</button>
-            </form>
+        <div class="feature">
+            <div class="icon">💲</div>
+            <h3>Low Cost and Secure Option</h3>
+            <p>Minimize costs and invest in secure options.</p>
         </div>
-    </div>
+        <div class="feature">
+            <div class="icon">🔍</div>
+            <h3>Direct Purchase</h3>
+            <p>Purchase mutual funds directly with ease and convenience.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🛡️</div>
+            <h3>Agents</h3>
+            <p>Agents are professionals who can assist you in selecting the right funds.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">💻</div>
+            <h3>Online</h3>
+            <p>Manage and monitor your funds online with secure portals.</p>
+        </div>
+    </section>
+    <section class="info-section">
+        <h2>Know About Tax Saving</h2>
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Invest in ELSS</h3>
+                <p>These are tax-saving mutual funds that help you save money.</p>
+            </div>
+            <div class="info-card">
+                <h3>Lowest lock-in of 3 years</h3>
+                <p>ELSS offer the lowest lock-in period among other tax saving options.</p>
+            </div>
+            <div class="info-card">
+                <h3>Higher interest rate</h3>
+                <p>ELSS give higher interest rates compared to other schemes.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
 </body>
 </html>
