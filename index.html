@@ -3,29 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة طلب المنتج</title>
+    <title>طلب WD-0408</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .container {
+            width: 80%;
+            max-width: 1200px;
             background: #fff;
             padding: 20px;
-            border-radius: 5px;
+            margin: 20px 0;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input, button {
+        .header {
+            text-align: center;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .product-details, .product-image {
+            flex: 1;
+            padding: 10px;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .order-form {
+            margin-top: 20px;
+        }
+        .order-form input, .order-form button {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
-        button {
+        .order-form button {
             background-color: #28a745;
             color: #fff;
             border: none;
@@ -35,22 +65,62 @@
 </head>
 <body>
     <div class="container">
-        <h2>طلب المنتج</h2>
-        <form id="orderForm">
-            <input type="text" id="name" placeholder="الاسم" required>
-            <input type="tel" id="phone" placeholder="رقم الهاتف" required>
-            <input type="text" id="address" placeholder="العنوان" required>
-            <button type="submit">إرسال</button>
-        </form>
+        <div class="header">
+            <h1>طلب المنتج WD-0408</h1>
+            <img src="https://wdlinkma.com/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-09-at-9.38.38-PM.jpeg" alt="WD-0408">
+        </div>
+        <div class="product-info">
+            <div class="product-details">
+                <h2>وصف المنتج</h2>
+                <p>WD-0408 هو منتج عالي الجودة متعدد الاستخدامات. مناسب للاستخدام اليومي ويوفر أداءً متميزاً بفضل تصميمه المتطور.</p>
+                <h3>المواصفات:</h3>
+                <ul>
+                    <li>التصميم: أنيق وعصري</li>
+                    <li>الأداء: عالي الكفاءة</li>
+                    <li>الاستخدام: متعدد</li>
+                    <li>الجودة: مضمونة</li>
+                </ul>
+            </div>
+            <div class="product-image">
+                <img src="https://wdlinkma.com/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-09-at-9.38.39-PM.jpeg" alt="WD-0408">
+            </div>
+        </div>
+        <div class="order-form">
+            <h2>اطلب المنتج الآن</h2>
+            <form id="orderForm">
+                <input type="text" id="name" placeholder="الاسم" required>
+                <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+                <input type="text" id="address" placeholder="العنوان" required>
+                <button type="submit">إرسال</button>
+            </form>
+        </div>
     </div>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
+        (function(){
+            emailjs.init("YOUR_USER_ID");
+        })();
+
         document.getElementById('orderForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            console.log('Name:', name, 'Phone:', phone, 'Address:', address);
-            alert('تم إرسال طلبك بنجاح!');
+
+            const templateParams = {
+                name: name,
+                phone: phone,
+                address: address
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('تم إرسال طلبك بنجاح!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('حدث خطأ أثناء إرسال الطلب.');
+                });
         });
     </script>
 </body>
