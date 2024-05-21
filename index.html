@@ -1,44 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>DigiSouss</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome To Digisouss">
-    <meta name="keywords" content="digisouss,mobile,computer,pc">
-    <meta name="author" content="DigiSouss">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Noto+Kufi+Arabic:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.ico">
+    <title>صفحة طلب المنتج</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="logos">
-        <div class="logose"><img class="logo2" src="images/DigiSouss_Logo-ai.png" alt="DigiSouss"></div>
-        <div class="divlogo"><img class="logo" src="images/logo.png" alt="DigiSouss"></div>
+    <div class="container">
+        <h2>طلب المنتج</h2>
+        <form id="orderForm">
+            <input type="text" id="name" placeholder="الاسم" required>
+            <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+            <input type="text" id="address" placeholder="العنوان" required>
+            <button type="submit">إرسال</button>
+        </form>
     </div>
-    <div class="main">
-        <div class="section">
-            <h2>... قريبا</h2>
-            <h3>أهلا و مرحبا بك في موقع ديجي سوس , الموقع قيد الانشاء</h3>
-            <h4>تواصلوا معنا الان</h4>
-        </div>
-        <div class="social">
-            <a href="https://web.facebook.com/digisouss" target="_blank"><img id="face" class="soc"
-                    src="images/face.png" alt="instagram"></a>
-            <a href="https://www.instagram.com/digisouss" target="_blank"><img id="inst" class="soc"
-                    src="images/insta.png" alt="instagram"></a>
-            <a href="https://api.whatsapp.com/send/?phone=212672675047" target="_blank"><img id="whats" class="soc"
-                    src="images/whats.png" alt="whatsapp"></a>
-            <a href="#" target="_blank" title="Ait Melloul"><img id="gps" class="soc" src="images/location.png"
-                    alt="gps"></a>
-        </div>
-    </div>
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            console.log('Name:', name, 'Phone:', phone, 'Address:', address);
+            alert('تم إرسال طلبك بنجاح!');
+        });
+    </script>
 </body>
-
 </html>
