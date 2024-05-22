@@ -3,125 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درج نقود WD0408</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: center;
-        }
-        .header {
-            background-color: #004085;
-            color: white;
-            padding: 50px 0;
-        }
-        .header img {
-            max-width: 150px;
-        }
-        .section {
-            padding: 50px 0;
-        }
-        .section h2 {
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-        .section p {
-            font-size: 1.1rem;
-        }
-        .icon-box {
-            margin-bottom: 30px;
-        }
-        .icon-box img {
-            max-width: 80px;
-            margin-bottom: 20px;
-        }
-        .footer {
-            background-color: #004085;
-            color: white;
-            padding: 20px 0;
-        }
-    </style>
+    <title>صفحة الهبوط</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1>الدرج الاحترافي الذي سيسهل عليك العمل والتعامل مع الزبائن</h1>
-            <img src="product-image1.jpg" alt="صورة درج النقود" class="img-fluid rounded mt-4">
-        </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">عن المشروع</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
     </header>
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>مصنوع من الفولاذ المقاوم للصدأ بأبعاد مثالية</h2>
-                    <p>أبعاد: 41 سم طول، 41 سم عرض، 11.5 سم ارتفاع</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="product-image2.jpg" alt="صورة درج معدني" class="img-fluid rounded">
-                </div>
-            </div>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>مرحباً بكم في مشروعنا</h1>
+            <p>تقديم أفضل الحلول والخدمات لعملائنا الكرام</p>
+            <a href="#contact" class="btn">تواصل معنا</a>
         </div>
     </section>
-    <section class="bg-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="product-image3.jpg" alt="أماكن الأوراق النقدية" class="img-fluid rounded">
-                </div>
-                <div class="col-md-6">
-                    <h2>مساحات منظمة للأوراق النقدية</h2>
-                    <p>يحتوي على أربعة أماكن منظمة وكافية للأوراق النقدية</p>
-                </div>
-            </div>
+    <section id="about">
+        <h2>عن المشروع</h2>
+        <p>نحن نقدم أفضل الخدمات والمنتجات لعملائنا مع التزامنا بأعلى معايير الجودة والابتكار.</p>
+    </section>
+    <section id="services">
+        <h2>الخدمات</h2>
+        <div class="service">
+            <h3>خدمة 1</h3>
+            <p>وصف الخدمة 1.</p>
+        </div>
+        <div class="service">
+            <h3>خدمة 2</h3>
+            <p>وصف الخدمة 2.</p>
         </div>
     </section>
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>مساحات قابلة للتعديل للعملات المعدنية</h2>
-                    <p>ثمانية أماكن للعملات المعدنية قابلة للتعديل</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="product-image4.jpg" alt="أماكن العملات المعدنية" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="bg-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="product-image5.jpg" alt="فتحة الشيكات" class="img-fluid rounded">
-                </div>
-                <div class="col-md-6">
-                    <h2>فتحة خاصة لإدخال الشيكات والكمبيالات</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>منفذ RJ11 لفتح الدرج تلقائيًا</h2>
-                    <p>لتوصيل الدرج بالطابعة وفتحه تلقائيًا</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="product-image6.jpg" alt="منفذ RJ11" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 درج نقود WD0408. جميع الحقوق محفوظة.</p>
-        </div>
+    <footer>
+        <p>© 2024 جميع الحقوق محفوظة.</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
