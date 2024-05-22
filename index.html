@@ -3,44 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة الهبوط</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>صفحة هبوط لمنتج</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+        .header, .section, .footer {
+            padding: 20px 0;
+        }
+        .header {
+            background-color: #FF8C00;
+            color: white;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .section {
+            padding: 50px 0;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+        }
+        .section h2, .section p {
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">عن المشروع</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
-        </nav>
+
+    <header class="header">
+        <div class="container">
+            <h1>عرض خاص بمناسبة شهر رمضان</h1>
+            <p>باقة خلاط كهربائي 5 في 1 + قطاعة الخضار</p>
+            <img src="image.png" alt="منتج العرض" class="img-fluid">
+        </div>
     </header>
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>مرحباً بكم في مشروعنا</h1>
-            <p>تقديم أفضل الحلول والخدمات لعملائنا الكرام</p>
-            <a href="#contact" class="btn">تواصل معنا</a>
+
+    <section class="section bg-light">
+        <div class="container">
+            <h2>تتكون الباقة من:</h2>
+            <p>خلاط كهربائي 5 في 1</p>
+            <img src="image.png" alt="خلاط كهربائي" class="img-fluid">
+            <p>يحتوي على 3 أوعية و3 أكسسوارات</p>
+            <ul class="list-unstyled">
+                <li>1. فرم اللحم والخضر</li>
+                <li>2. خلط البيض والعجين</li>
+                <li>3. الطحن بالثوم</li>
+            </ul>
+            <img src="image.png" alt="أكسسوارات الخلاط" class="img-fluid">
+            <p>مع المحرك 300 واط، سهولة تنظيف واستعمال، حجمه الصغير لا يأخذ مساحة.</p>
+            <h2>قطاعة الخضار والفواكه</h2>
+            <img src="image.png" alt="قطاعة الخضار والفواكه" class="img-fluid">
+            <p>متعددة الاستخدام تتكون من 11 قطعة للاستعمال</p>
+            <img src="image.png" alt="أدوات القطاعة" class="img-fluid">
+            <p>عملي للغاية وأكثر من مفيد</p>
+            <img src="image.png" alt="طريقة الاستخدام" class="img-fluid">
         </div>
     </section>
-    <section id="about">
-        <h2>عن المشروع</h2>
-        <p>نحن نقدم أفضل الخدمات والمنتجات لعملائنا مع التزامنا بأعلى معايير الجودة والابتكار.</p>
-    </section>
-    <section id="services">
-        <h2>الخدمات</h2>
-        <div class="service">
-            <h3>خدمة 1</h3>
-            <p>وصف الخدمة 1.</p>
-        </div>
-        <div class="service">
-            <h3>خدمة 2</h3>
-            <p>وصف الخدمة 2.</p>
+
+    <section class="section">
+        <div class="container">
+            <h2>طريقة الاستعمال</h2>
+            <p>شفرات من الفولاذ المقاوم للصدأ حادة للغاية</p>
+            <img src="image.png" alt="طريقة الاستعمال" class="img-fluid">
         </div>
     </section>
-    <footer>
-        <p>© 2024 جميع الحقوق محفوظة.</p>
+
+    <footer class="footer">
+        <div class="container">
+            <p>لأننا نهتم بك وفرناهم لك بأفضل سعر</p>
+            <h2>5900 دج فقط</h2>
+            <img src="image.png" alt="منتج العرض" class="img-fluid">
+            <p>عملية استبدال، مدة الصلاحية، خدمة التوصيل</p>
+        </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
