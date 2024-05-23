@@ -3,90 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة هبوط لمنتج</title>
+    <title>درج النقود الاتوماتيكي</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Bahij-Black';
+            src: url('fonts/Bahij_TheSansArabic-Black.ttf') format('truetype');
+        }
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #fff;
-            color: #333;
-            text-align: center;
-        }
-        .header, .section, .footer {
-            padding: 20px 0;
-        }
-        .header {
-            background-color: #FF8C00;
-            color: white;
-        }
-        .header h1 {
+            font-family: 'Bahij-Black', sans-serif;
+            background-color: #f9f9f9;
             margin: 0;
+            padding: 0;
         }
-        .section {
-            padding: 50px 0;
-        }
-        .section img {
-            max-width: 100%;
-            height: auto;
-        }
-        .section h2, .section p {
-            margin: 20px 0;
-        }
-        .footer {
-            background-color: #333;
+        .navbar {
+            background-color: #FF8C00; /* لون جذاب */
             color: white;
-            padding: 20px 0;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand mx-auto" href="#">درج النقود الاتوماتيكي</a>
+    </nav>
 
-    <header class="header">
-        <div class="container">
-            <h1>عرض خاص بمناسبة شهر رمضان</h1>
-            <p>باقة خلاط كهربائي 5 في 1 + قطاعة الخضار</p>
-            <img src="image.png" alt="منتج العرض" class="img-fluid">
-        </div>
-    </header>
-
-    <section class="section bg-light">
-        <div class="container">
-            <h2>تتكون الباقة من:</h2>
-            <p>خلاط كهربائي 5 في 1</p>
-            <img src="image.png" alt="خلاط كهربائي" class="img-fluid">
-            <p>يحتوي على 3 أوعية و3 أكسسوارات</p>
-            <ul class="list-unstyled">
-                <li>1. فرم اللحم والخضر</li>
-                <li>2. خلط البيض والعجين</li>
-                <li>3. الطحن بالثوم</li>
-            </ul>
-            <img src="image.png" alt="أكسسوارات الخلاط" class="img-fluid">
-            <p>مع المحرك 300 واط، سهولة تنظيف واستعمال، حجمه الصغير لا يأخذ مساحة.</p>
-            <h2>قطاعة الخضار والفواكه</h2>
-            <img src="image.png" alt="قطاعة الخضار والفواكه" class="img-fluid">
-            <p>متعددة الاستخدام تتكون من 11 قطعة للاستعمال</p>
-            <img src="image.png" alt="أدوات القطاعة" class="img-fluid">
-            <p>عملي للغاية وأكثر من مفيد</p>
-            <img src="image.png" alt="طريقة الاستخدام" class="img-fluid">
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <h2>طريقة الاستعمال</h2>
-            <p>شفرات من الفولاذ المقاوم للصدأ حادة للغاية</p>
-            <img src="image.png" alt="طريقة الاستعمال" class="img-fluid">
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>لأننا نهتم بك وفرناهم لك بأفضل سعر</p>
-            <h2>5900 دج فقط</h2>
-            <img src="image.png" alt="منتج العرض" class="img-fluid">
-            <p>عملية استبدال، مدة الصلاحية، خدمة التوصيل</p>
-        </div>
-    </footer>
+    <!-- محتوى الصفحة هنا -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
