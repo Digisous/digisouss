@@ -11,11 +11,35 @@
             src: url('fonts/Bahij_TheSansArabic-Black.ttf') format('truetype');
         }
         @font-face {
+            font-family: 'Bahij-Bold';
+            src: url('fonts/Bahij_TheSansArabic-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-ExtraBold';
+            src: url('fonts/Bahij_TheSansArabic-ExtraBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-ExtraLight';
+            src: url('fonts/Bahij_TheSansArabic-ExtraLight.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Light';
+            src: url('fonts/Bahij_TheSansArabic-Light.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Plain';
+            src: url('fonts/Bahij_TheSansArabic-Plain.ttf') format('truetype');
+        }
+        @font-face {
             font-family: 'Bahij-SemiBold';
             src: url('fonts/Bahij_TheSansArabic-SemiBold.ttf') format('truetype');
         }
+        @font-face {
+            font-family: 'Bahij-SemiLight';
+            src: url('fonts/Bahij_TheSansArabic-SemiLight.ttf') format('truetype');
+        }
         body {
-            font-family: 'Bahij-Black', sans-serif;
+            font-family: 'Bahij-Plain', sans-serif;
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
@@ -42,6 +66,11 @@
             font-family: 'Bahij-SemiBold', sans-serif;
             color: #333;
         }
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+        }
     </style>
     <!-- تضمين أيقونات Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -62,6 +91,7 @@
         <div class="description">
             <p>الحل المثالي باش تنظم فلوسك وترتاح في التعامل مع الزبناء ديالك</p>
         </div>
+        <img src="path/to/your-image.jpg" alt="صورة المنتج" class="product-image">
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
