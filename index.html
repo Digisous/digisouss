@@ -84,8 +84,7 @@
             width: 100%;
             display: inline-block;
             padding: 7px 7px; /* تعديل الهوامش */
-            margin-top: 20px; /* الهوامش العلوية والسفلية */
-            margin-buttom: 20px;
+            margin: 10px 0; /* الهوامش العلوية والسفلية */
             border-radius: 7px;
             font-family: 'Bahij-Bold', sans-serif;
             font-size: 1.5rem; /* تكبير حجم الخط */
@@ -93,12 +92,35 @@
         .sub-text {
             font-family: 'Bahij-SemiBold', sans-serif;
             color: #333;
-            margin-top: 30px;
             font-size: 1.4rem; /* تكبير حجم الخط للنص الفرعي */
         }
         .image-container {
             text-align: center;
             margin-top: 20px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 2px solid #FF8C00; /* نفس لون الشريط */
+        }
+        .divider::before {
+            margin-right: 10px;
+        }
+        .divider::after {
+            margin-left: 10px;
+        }
+        .diamond {
+            width: 10px;
+            height: 10px;
+            background-color: #FF8C00; /* نفس لون الشريط */
+            transform: rotate(45deg);
         }
     </style>
     <!-- تضمين أيقونات Bootstrap -->
@@ -123,11 +145,15 @@
         <img src="images/image_1.png" alt="صورة المنتج" class="product-image">
         <div class="additional-description">
             <span class="highlighted-text">تصميم معدني عالي الجودة <br>شديد التحمل</span>
-            <p class="sub-text">مقاسات الدرج مثالية، كيصلح لجميع المساحات وكيوفر لك نظام ترتيب محكم </p>
+            <p class="sub-text">مقاسات الدرج مثالية، كيصلح لجميع المساحات وكيوفر لك نظام ترتيب محكم</p>
         </div>
         <div class="image-container">
             <img src="images/image_3.png" alt="مقاسات المنتج" class="product-image">
         </div>
+        <div class="divider">
+            <div class="diamond"></div>
+        </div>
+        <!-- محتوى إضافي يمكن إضافته هنا -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
