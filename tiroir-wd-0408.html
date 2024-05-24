@@ -160,7 +160,7 @@
             padding: 10px;
             border: 2px solid #FF8C00;
             border-radius: 5px;
-			text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
+	    text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
         }
         .form-group button {
             background-color: #FF8C00;
@@ -169,6 +169,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+	    width: 100%;
         }
         .form-group button:hover {
             background-color: #e07b00;
@@ -261,19 +262,19 @@
 			    <p class="sub-text-form">اطلب الآن المجر الإحترافي لي غايخليك مرتاح البال في خدمتك</p>
 			    <form>
 				    <div class="form-group">
-					    <label for="name">الاسم</label>
+					    <label for="name">*الاسم</label>
 					    <input type="text" id="name" name="name" required>
 				    </div>
 				    <div class="form-group">
-					    <label for="phone">رقم الهاتف</label>
+					    <label for="phone">*رقم الهاتف</label>
 					    <input type="tel" id="phone" name="phone" required>
 				    </div>
 				    <div class="form-group">
-					    <label for="city">المدينة</label>
+					    <label for="city">*المدينة</label>
 					    <input type="text" id="city" name="city" required>
 				    </div>
 				    <div class="form-group">
-					    <label for="address">العنوان</label>
+					    <label for="address">*العنوان</label>
 					    <input type="text" id="address" name="address" required>
 				    </div>
 				    <div class="form-group">
