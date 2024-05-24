@@ -69,9 +69,13 @@
         }
         .product-image {
             width: 100%;
-            max-width: 300px;
+            max-width: 400px;
             margin-top: 20px;
         }
+		.full-width-image {
+		width: 100%;
+		height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+}
         .additional-description {
             margin-top: 20px;
             font-size: 1.2rem;
@@ -92,7 +96,10 @@
         .sub-text {
             font-family: 'Bahij-SemiBold', sans-serif;
             color: #333;
+			margin: 30px 0px;
             font-size: 1.4rem; /* تكبير حجم الخط للنص الفرعي */
+			direction: rtl; /* لضبط اتجاه النص من اليمين إلى اليسار */
+			unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
         }
         .image-container {
             text-align: center;
@@ -102,15 +109,14 @@
             display: flex;
             align-items: center;
             text-align: center;
-            margin: 20px 0;
-            margin-top: 30px; /* هوامش علوية */
-            margin-bottom: 30px; /* هوامش سفلية */
+            margin: 60px 60px;
         }
         .divider::before,
         .divider::after {
             content: '';
             flex: 1;
-            border-bottom: 2px solid #FF8C00; /* نفس لون الشريط */
+            border-bottom: 2px 
+			solid #FF8C00; /* نفس لون الشريط */
         }
         .divider::before {
             margin-right: 10px;
@@ -141,7 +147,7 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
         </div>
-        <div class="description">
+        <div class="additional-description">
             <p>الحل المثالي باش تنظم فلوسك وترتاح في التعامل مع الزبناء ديالك</p>
         </div>
         <img src="images/image_1.png" alt="صورة المنتج" class="product-image">
@@ -160,7 +166,51 @@
         <div class="divider">
             <div class="diamond"></div>
         </div>
-        <!-- محتوى إضافي يمكن إضافته هنا -->
+        <div class="additional-description">
+            <span class="highlighted-text">أماكن منظمة لمختلف الفئات النقدية</span>
+            <p class="sub-text"></p>
+        </div>
+		<div class="image-container">
+            <img src="images/image_8.png" alt="صورة المنتج" class="full-width-image">
+        </div>
+		<div class="additional-description">
+            <p class="sub-text">الدرج الاتوماتيكي فيه أربعة أماكن مرتبة ومناسبة للأوراق النقدية</p>
+        </div>
+		<div class="additional-description">
+            <p class="sub-text">وثمانية أماكن للعملات المعدنية، يمكن ليك تعدلها تزيد وتنقص فالمساحة ديالها وترتبها حسب حاجتك</p>
+        </div>
+		<div class="image-container">
+            <img src="images/image_6.png" alt="اماكن النقود" class="product-image">
+        </div>
+		<div class="divider">
+            <div class="diamond"></div>
+        </div>
+		<div class="additional-description">
+            <span class="highlighted-text">فتحة الشيكات</span>
+            <p class="sub-text"></p>
+        </div>
+		<div class="additional-description">
+            <p class="sub-text">فتحة مخصصة لإدخال الشيكات والكمبيالات بسهولة وأمان</p>
+        </div>
+		<div class="image-container">
+            <img src="images/image_7.png" alt="فتحة الشيكات" class="full-width-image">
+        </div>
+		<div class="divider">
+            <div class="diamond"></div>
+        </div>
+		<div class="additional-description">
+            <span class="highlighted-text">RJ11 منفذ كابل</span>
+            <p class="sub-text"></p>
+        </div>
+		<div class="additional-description">
+		    <p class="sub-text">منفذ RJ11 باش توصل الدرج بالطابعة، لي كايخلي الدرج  إتحل تلقائيًا عند طبع إيصال الدفع</p>
+        </div>
+		<div class="image-container">
+            <img src="images/image_9.png" alt="فتحة الشيكات" class="product-image">
+        </div>
+		<div class="image-container">
+            <img src="images/image_10.png" alt="فتحة الشيكات" class="product-image">
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
