@@ -171,10 +171,10 @@
         .form-group-2 {
             margin-bottom: 15px;
             display: flex;
-			font-weight: bold;
+            font-weight: bold;
             align-items: center;
             justify-content: space-between; /* لضمان أن الكمية والسعر يظهران في نفس السطر */
-			margin: 30px 0px;
+            margin: 30px 0px;
         }
         .form-group-2 label {
             margin-bottom: 0;
@@ -222,7 +222,7 @@
             unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
             text-align: right;
             width: 100%; /* تأكد من أن السعر يأخذ العرض الكامل */
-			margin-right: 10px;
+            margin-right: 10px;
         }
         .form-group button {
             background-color: #FF8C00;
@@ -403,16 +403,15 @@
                     <input type="text" id="address" name="address" required />
                 </div>
                 <div class="form-group-2">
-				<div class="total-price" id="total-price">549 درهم</div>
+                    <div class="total-price" id="total-price">549 درهم</div>
                     <div class="quantity-wrapper">
                         <div class="quantity-button" id="decrease">-</div>
                         <div class="quantity-display" id="quantity">1</div>
                         <div class="quantity-button" id="increase">+</div>
                     </div>
                     <label for="quantity">*الكمية</label>
-                    
                 </div>
-				<p class="sub-text-form-bottom">* التوصيل حتا لباب دارك، ماغاتزيد والو على هاد الثمن</p>
+                <p class="sub-text-form-bottom">* التوصيل حتا لباب دارك، ماغاتزيد والو على هاد الثمن</p>
                 <div class="form-group">
                     <button type="submit">إضغط هنا للطلب</button>
                 </div>
@@ -456,14 +455,14 @@
                 if (currentQuantity === 1) {
                     totalPriceText = '549 درهم';
                 } else if (currentQuantity === 2) {
-                    totalPriceText = '999 درهم عوض 1100 درهم';
+                    totalPriceText = '999 درهم<br>عوض 1100 درهم';
                 } else if (currentQuantity === 3) {
-                    totalPriceText = '1449 درهم عوض 1650 درهم';
+                    totalPriceText = '1449 درهم<br>عوض 1650 درهم';
                 } else {
                     const totalPrice = 480 * currentQuantity;
                     totalPriceText = `${totalPrice} درهم`;
                 }
-                totalPriceDisplay.textContent = totalPriceText;
+                totalPriceDisplay.innerHTML = totalPriceText;
             }
 
             increaseButton.addEventListener('click', () => {
