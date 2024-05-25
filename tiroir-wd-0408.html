@@ -481,6 +481,34 @@
 
             updateTotalPrice();
         });
+        
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                city: document.getElementById('city').value,
+                address: document.getElementById('address').value,
+                quantity: document.getElementById('quantity').textContent
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbyjs1Vx3SOga8p_5r76f05AbU7Y9BB_8PHAgQbbDEHgyIuGGeSrVLvfRE9LsyORiI6XKQ/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('تم إرسال طلبك بنجاح!');
+                } else {
+                    alert('حدث خطأ أثناء إرسال طلبك. حاول مرة أخرى.');
+                }
+            }).catch(error => {
+                alert('حدث خطأ أثناء إرسال طلبك. حاول مرة أخرى.');
+            });
+        });
     </script>
 </body>
 </html>
