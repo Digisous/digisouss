@@ -385,7 +385,7 @@
     <div class="container-fluid">
         <div id="order-form" class="form-container" data-aos="fade-up">
             <p class="sub-text-form-top">التوصيل حتا لباب دارك <br>وماتخلص حتا توصل بالطلبية ديالك</p>
-            <form>
+            <form id="orderForm">
                 <div class="form-group">
                     <label for="name">*الاسم</label>
                     <input type="text" id="name" name="name" required />
@@ -480,6 +480,43 @@
             });
 
             updateTotalPrice();
+
+            // Form submission
+            const form = document.getElementById('orderForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const data = {
+                    name: form.name.value,
+                    phone: form.phone.value,
+                    city: form.city.value,
+                    address: form.address.value,
+                    quantity: quantityDisplay.textContent
+                };
+
+                fetch('https://script.google.com/macros/s/AKfycbyjs1Vx3SOga8p_5r76f05AbU7Y9BB_8PHAgQbbDEHgyIuGGeSrVLvfRE9LsyORiI6XKQ/exec', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(response => {
+                    if (response.status === 'success') {
+                        alert('تم إرسال النموذج بنجاح');
+                        form.reset();
+                        quantityDisplay.textContent = '1';
+                        updateTotalPrice();
+                    } else {
+                        alert('حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى.');
+                });
+            });
         });
     </script>
 </body>
