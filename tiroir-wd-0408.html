@@ -481,40 +481,37 @@
 
             updateTotalPrice();
 
-            // Form submission
-            const form = document.getElementById('orderForm');
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                const data = {
-                    name: form.name.value,
-                    phone: form.phone.value,
-                    city: form.city.value,
-                    address: form.address.value,
-                    quantity: quantityDisplay.textContent
-                };
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const city = document.getElementById('city').value;
+                const address = document.getElementById('address').value;
+                const quantity = document.getElementById('quantity').textContent;
 
                 fetch('https://script.google.com/macros/s/AKfycbyjs1Vx3SOga8p_5r76f05AbU7Y9BB_8PHAgQbbDEHgyIuGGeSrVLvfRE9LsyORiI6XKQ/exec', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        city: city,
+                        address: address,
+                        quantity: quantity
+                    }),
                 })
                 .then(response => response.json())
-                .then(response => {
-                    if (response.status === 'success') {
-                        alert('تم إرسال النموذج بنجاح');
-                        form.reset();
-                        quantityDisplay.textContent = '1';
-                        updateTotalPrice();
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('تم إرسال الطلب بنجاح!');
                     } else {
-                        alert('حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى.');
+                        alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
                     }
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى.');
+                .catch((error) => {
+                    alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
                 });
             });
         });
