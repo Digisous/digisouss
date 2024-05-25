@@ -90,7 +90,7 @@
             display: inline-block;
             padding: 7px 7px; /* تعديل الهوامش */
             margin-top: 60px;
-			margin-bottom: 20px;
+            margin-bottom: 20px;
             border-radius: 7px;
             font-family: 'Bahij-Bold', sans-serif;
             font-size: 1.5rem; /* تكبير حجم الخط */
@@ -168,12 +168,57 @@
             font-weight: bold;
             text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
         }
+        .form-group-2 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .form-group-2 label {
+            margin-bottom: 0;
+            margin-left: 10px;
+			font-weight: bold;
+            text-align: right; /* تأكد من محاذاة النص لليمين */
+        }
         .form-group input {
             width: 100%;
             padding: 10px;
             border: 2px solid #FF8C00;
             border-radius: 5px;
             text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
+        }
+        .quantity-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-button {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 20px;
+            border-radius: 5px;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quantity-display {
+            font-size: 18px;
+            padding: 0 10px;
+            text-align: center;
+        }
+        .total-price {
+            font-size: 18px;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            margin-top: 10px; /* إضافة هامش علوي */
+            text-align: center;
+            width: 100%; /* تأكد من أن السعر يأخذ العرض الكامل */
         }
         .form-group button {
             background-color: #FF8C00;
@@ -270,21 +315,21 @@
                 تصميم معدني عالي الجودة <br />
                 شديد التحمل
             </span>
-			<div class="divider" data-aos="fade-in">
-            <div class="diamond"></div>
-        </div>
+            <div class="divider" data-aos="fade-in">
+                <div class="diamond"></div>
+            </div>
             <p class="sub-text">مقاسات الدرج مثالية، كيصلح لجميع المساحات وكيوفر لك نظام ترتيب محكم</p>
         </div>
         <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_3.png" alt="مقاسات المنتج" class="product-image" />
         </div>
-		<!-- زر الطلب في المنتصف -->
+        <!-- زر الطلب في المنتصف -->
         <a href="#order-form" class="order-button" data-aos="fade-right">إضغط هنا للطلب</a>
         <div class="additional-description" data-aos="fade-right">
             <span class="highlighted-text">أماكن منظمة لمختلف الفئات النقدية</span>
             <div class="divider" data-aos="fade-in">
-            <div class="diamond"></div>
-        </div>
+                <div class="diamond"></div>
+            </div>
         </div>
         <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_8.png" alt="صورة المنتج" class="product-image" />
@@ -298,12 +343,12 @@
         <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_6.png" alt="اماكن النقود" class="product-image" />
         </div>
-        
+
         <div class="additional-description" data-aos="fade-left">
             <span class="highlighted-text">فتحة الشيكات</span>
             <div class="divider" data-aos="fade-in">
-            <div class="diamond"></div>
-        </div>
+                <div class="diamond"></div>
+            </div>
         </div>
         <div class="additional-description" data-aos="fade-right">
             <p class="sub-text">فتحة مخصصة لإدخال الشيكات والكمبيالات بسهولة وأمان</p>
@@ -311,13 +356,13 @@
         <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_7.png" alt="فتحة الشيكات" class="full-width-image" />
         </div>
-		<a href="#order-form" class="order-button" data-aos="fade-left">إضغط هنا للطلب</a>
-        
+        <a href="#order-form" class="order-button" data-aos="fade-left">إضغط هنا للطلب</a>
+
         <div class="additional-description" data-aos="fade-right">
             <span class="highlighted-text">RJ11 منفذ كابل</span>
             <div class="divider" data-aos="fade-in">
-            <div class="diamond"></div>
-        </div>
+                <div class="diamond"></div>
+            </div>
         </div>
         <div class="additional-description" data-aos="fade-left">
             <p class="sub-text">منفذ RJ11 باش توصل الدرج بالطابعة، لي كايخلي الدرج إتحل تلقائيًا عند طبع إيصال الدفع</p>
@@ -353,6 +398,16 @@
                     <label for="address">*العنوان</label>
                     <input type="text" id="address" name="address" required />
                 </div>
+                <div class="form-group-2">
+                    
+                    <div class="quantity-wrapper">
+                        <div class="quantity-button" id="decrease">-</div>
+                        <div class="quantity-display" id="quantity">1</div>
+                        <div class="quantity-button" id="increase">+</div>
+                    </div>
+					<label for="quantity">*الكمية</label>
+                </div>
+                <div class="total-price" id="total-price">السعر: 100 درهم</div>
                 <div class="form-group">
                     <button type="submit">إضغط هنا للطلب</button>
                 </div>
@@ -384,6 +439,32 @@
             });
 
             buttons.forEach(button => observer.observe(button));
+
+            const quantityDisplay = document.getElementById('quantity');
+            const increaseButton = document.getElementById('increase');
+            const decreaseButton = document.getElementById('decrease');
+            const totalPriceDisplay = document.getElementById('total-price');
+            const pricePerItem = 100; // سعر المنتج بالدرهم
+
+            function updateTotalPrice() {
+                const currentQuantity = parseInt(quantityDisplay.textContent);
+                const totalPrice = currentQuantity * pricePerItem;
+                totalPriceDisplay.textContent = `السعر: ${totalPrice} درهم`;
+            }
+
+            increaseButton.addEventListener('click', () => {
+                let currentQuantity = parseInt(quantityDisplay.textContent);
+                quantityDisplay.textContent = currentQuantity + 1;
+                updateTotalPrice();
+            });
+
+            decreaseButton.addEventListener('click', () => {
+                let currentQuantity = parseInt(quantityDisplay.textContent);
+                if (currentQuantity > 1) {
+                    quantityDisplay.textContent = currentQuantity - 1;
+                    updateTotalPrice();
+                }
+            });
         });
     </script>
 </body>
