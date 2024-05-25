@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>درج النقـــود الأتومــاتيكـي</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Bahij-Black';
@@ -88,7 +89,8 @@
             width: 100%;
             display: inline-block;
             padding: 7px 7px; /* تعديل الهوامش */
-            margin: 10px 0; /* الهوامش العلوية والسفلية */
+            margin-top: 60px;
+			margin-bottom: 20px;
             border-radius: 7px;
             font-family: 'Bahij-Bold', sans-serif;
             font-size: 1.5rem; /* تكبير حجم الخط */
@@ -128,7 +130,7 @@
             display: flex;
             align-items: center;
             text-align: center;
-            margin: 60px 10px;
+            margin: 20px 10px;
         }
         .divider::before,
         .divider::after {
@@ -252,90 +254,87 @@
 
     <div class="content">
 
-        <div class="stars">
+        <div class="stars" data-aos="fade-in">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
         </div>
-        <div class="additional-description">
+        <div class="additional-description" data-aos="fade-right">
             <p>الحل المثالي باش تنظم فلوسك وترتاح في التعامل مع الزبناء ديالك</p>
         </div>
-        <img src="tir-images/img_1.png" alt="صورة المنتج" class="product-image" />
-
-        <div class="divider">
-            <div class="diamond"></div>
-        </div>
-
-        <div class="additional-description">
+        <img src="tir-images/img_1.png" alt="صورة المنتج" class="product-image" data-aos="fade-up" />
+        <div class="additional-description" data-aos="fade-left">
             <span class="highlighted-text">
                 تصميم معدني عالي الجودة <br />
                 شديد التحمل
             </span>
+			<div class="divider" data-aos="fade-in">
+            <div class="diamond"></div>
+        </div>
             <p class="sub-text">مقاسات الدرج مثالية، كيصلح لجميع المساحات وكيوفر لك نظام ترتيب محكم</p>
         </div>
-        <div class="image-container">
+        <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_3.png" alt="مقاسات المنتج" class="product-image" />
         </div>
 		<!-- زر الطلب في المنتصف -->
-        <a href="#order-form" class="order-button">إضغط هنا للطلب</a>
-        <div class="divider">
+        <a href="#order-form" class="order-button" data-aos="fade-right">إضغط هنا للطلب</a>
+        <div class="additional-description" data-aos="fade-right">
+            <span class="highlighted-text">أماكن منظمة لمختلف الفئات النقدية</span>
+            <div class="divider" data-aos="fade-in">
             <div class="diamond"></div>
         </div>
-        <div class="additional-description">
-            <span class="highlighted-text">أماكن منظمة لمختلف الفئات النقدية</span>
-            <p class="sub-text"></p>
         </div>
-        <div class="image-container">
+        <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_8.png" alt="صورة المنتج" class="product-image" />
         </div>
-        <div class="additional-description">
+        <div class="additional-description" data-aos="fade-left">
             <p class="sub-text">الدرج الاتوماتيكي فيه أربعة أماكن مرتبة ومناسبة للأوراق النقدية</p>
         </div>
-        <div class="additional-description">
+        <div class="additional-description" data-aos="fade-right">
             <p class="sub-text">وثمانية أماكن للعملات المعدنية، يمكن ليك تعدلها تزيد وتنقص فالمساحة ديالها وترتبها حسب حاجتك</p>
         </div>
-        <div class="image-container">
+        <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_6.png" alt="اماكن النقود" class="product-image" />
         </div>
-        <div class="divider">
+        
+        <div class="additional-description" data-aos="fade-left">
+            <span class="highlighted-text">فتحة الشيكات</span>
+            <div class="divider" data-aos="fade-in">
             <div class="diamond"></div>
         </div>
-        <div class="additional-description">
-            <span class="highlighted-text">فتحة الشيكات</span>
-            <p class="sub-text"></p>
         </div>
-        <div class="additional-description">
+        <div class="additional-description" data-aos="fade-right">
             <p class="sub-text">فتحة مخصصة لإدخال الشيكات والكمبيالات بسهولة وأمان</p>
         </div>
-        <div class="image-container">
+        <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_7.png" alt="فتحة الشيكات" class="full-width-image" />
         </div>
-		<a href="#order-form" class="order-button">إضغط هنا للطلب</a>
-        <div class="divider">
+		<a href="#order-form" class="order-button" data-aos="fade-left">إضغط هنا للطلب</a>
+        
+        <div class="additional-description" data-aos="fade-right">
+            <span class="highlighted-text">RJ11 منفذ كابل</span>
+            <div class="divider" data-aos="fade-in">
             <div class="diamond"></div>
         </div>
-        <div class="additional-description">
-            <span class="highlighted-text">RJ11 منفذ كابل</span>
-            <p class="sub-text"></p>
         </div>
-        <div class="additional-description">
+        <div class="additional-description" data-aos="fade-left">
             <p class="sub-text">منفذ RJ11 باش توصل الدرج بالطابعة، لي كايخلي الدرج إتحل تلقائيًا عند طبع إيصال الدفع</p>
         </div>
-        <div class="image-container">
+        <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_9.png" alt="فتحة الشيكات" class="product-image" />
         </div>
-        <div class="image-container">
+        <div class="image-container" data-aos="fade-up">
             <img src="tir-images/img_10.png" alt="فتحة الشيكات" class="product-image" />
         </div>
 
-        <div class="divider">
+        <div class="divider" data-aos="fade-in">
             <div class="diamond"></div>
         </div>
     </div>
     <div class="container-fluid">
-        <div id="order-form" class="form-container">
+        <div id="order-form" class="form-container" data-aos="fade-up">
             <p class="sub-text-form-top">اطلب الآن المجر الإحترافي لي غايخليك مرتاح البال في خدمتك</p>
             <form>
                 <div class="form-group">
@@ -365,7 +364,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script>
+        AOS.init({
+            duration: 1000,
+        });
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.form-group button, .order-button');
 
