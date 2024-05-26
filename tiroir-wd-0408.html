@@ -339,6 +339,12 @@
         max-width: 150px;
         margin-bottom: 10px;
     }
+
+    /* أنماط الإدخال لضبط الاتجاه بناءً على اللغة */
+    input {
+        text-align: inherit;
+        direction: inherit;
+    }
 		
     </style>
     <!-- تضمين أيقونات Bootstrap -->
@@ -439,19 +445,19 @@
                 <!-- الحقول الحالية للاسم والهاتف والمدينة والعنوان -->
                 <div class="form-group">
                     <label for="name">*الاسم</label>
-                    <input type="text" id="name" name="name" required dir="rtl" />
+                    <input type="text" id="name" name="name" required />
                 </div>
                 <div class="form-group">
                     <label for="phone">*رقم الهاتف</label>
-                    <input type="tel" id="phone" name="phone" required dir="rtl" />
+                    <input type="tel" id="phone" name="phone" required />
                 </div>
                 <div class="form-group">
                     <label for="city">*المدينة</label>
-                    <input type="text" id="city" name="city" required dir="rtl" />
+                    <input type="text" id="city" name="city" required />
                 </div>
                 <div class="form-group">
                     <label for="address">*العنوان</label>
-                    <input type="text" id="address" name="address" required dir="rtl" />
+                    <input type="text" id="address" name="address" required />
                 </div>
                 <!-- حقل مخفي للكمية -->
                 <input type="hidden" id="quantity-input" name="quantity" value="1" />
@@ -488,109 +494,122 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
+    AOS.init({
+        duration: 1000,
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.forms['submit-to-google-sheet'];
+        
+        // إضافة رسائل مخصصة للتحقق من صحة الحقول المطلوبة
+        form.name.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء ملء هذا الحقل');
+        });
+        form.phone.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء إدخال رقم هاتف صالح');
+        });
+        form.city.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء إدخال المدينة');
+        });
+        form.address.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء إدخال العنوان');
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.forms['submit-to-google-sheet'];
-            
-            // إضافة رسائل مخصصة للتحقق من صحة الحقول المطلوبة
-            form.name.addEventListener('invalid', function() {
-                this.setCustomValidity('الرجاء ملء هذا الحقل');
-            });
-            form.phone.addEventListener('invalid', function() {
-                this.setCustomValidity('الرجاء إدخال رقم هاتف صالح');
-            });
-            form.city.addEventListener('invalid', function() {
-                this.setCustomValidity('الرجاء إدخال المدينة');
-            });
-            form.address.addEventListener('invalid', function() {
-                this.setCustomValidity('الرجاء إدخال العنوان');
-            });
+        // إزالة الرسالة المخصصة عند محاولة إعادة إرسال النموذج
+        form.name.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+        form.phone.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+        form.city.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+        form.address.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
 
-            // إزالة الرسالة المخصصة عند محاولة إعادة إرسال النموذج
-            form.name.addEventListener('input', function() {
+        // التحقق من رقم الهاتف
+        form.phone.addEventListener('input', function() {
+            if (this.value.length < 10) {
+                this.setCustomValidity('رقم الهاتف غير صالح');
+            } else {
                 this.setCustomValidity('');
-            });
-            form.phone.addEventListener('input', function() {
-                this.setCustomValidity('');
-            });
-            form.city.addEventListener('input', function() {
-                this.setCustomValidity('');
-            });
-            form.address.addEventListener('input', function() {
-                this.setCustomValidity('');
-            });
-
-            // التحقق من رقم الهاتف
-            form.phone.addEventListener('input', function() {
-                if (this.value.length < 10) {
-                    this.setCustomValidity('رقم الهاتف غير صالح');
-                } else {
-                    this.setCustomValidity('');
-                }
-            });
-
-            // بقية الكود الحالي
-            const buttons = document.querySelectorAll('.form-group button, .order-button');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    } else {
-                        entry.target.classList.remove('animate');
-                    }
-                });
-            }, {
-                threshold: 0.5 // 50% من الزر يجب أن تكون مرئية في نافذة العرض
-            });
-
-            buttons.forEach(button => observer.observe(button));
-
-            const quantityDisplay = document.getElementById('quantity');
-            const quantityInput = document.getElementById('quantity-input');
-            const increaseButton = document.getElementById('increase');
-            const decreaseButton = document.getElementById('decrease');
-            const totalPriceDisplay = document.getElementById('total-price');
-
-            function updateTotalPrice() {
-                const currentQuantity = parseInt(quantityDisplay.textContent);
-                quantityInput.value = currentQuantity; // تحديث قيمة الحقل المخفي
-                let totalPriceText = '';
-                if (currentQuantity === 1) {
-                    totalPriceText = '549 درهم';
-                } else if (currentQuantity === 2) {
-                    totalPriceText = '999 درهم<br>عوض 1100 درهم';
-                } else if (currentQuantity === 3) {
-                    totalPriceText = '1449 درهم<br>عوض 1650 درهم';
-                } else {
-                    const totalPrice = 480 * currentQuantity;
-                    totalPriceText = `${totalPrice} درهم`;
-                }
-                totalPriceDisplay.innerHTML = totalPriceText;
             }
+        });
 
-            increaseButton.addEventListener('click', () => {
-                let currentQuantity = parseInt(quantityDisplay.textContent);
-                quantityDisplay.textContent = currentQuantity + 1;
-                updateTotalPrice();
-            });
-
-            decreaseButton.addEventListener('click', () => {
-                let currentQuantity = parseInt(quantityDisplay.textContent);
-                if (currentQuantity > 1) {
-                    quantityDisplay.textContent = currentQuantity - 1;
-                    updateTotalPrice();
+        // ضبط اتجاه النص داخل الحقول بناءً على المحتوى المدخل
+        const inputs = document.querySelectorAll('input[type="text"], input[type="tel"]');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                const value = this.value;
+                if (/^[\u0600-\u06FF]/.test(value)) { // إذا كان النص باللغة العربية
+                    this.style.direction = 'rtl';
+                    this.style.textAlign = 'right';
+                } else { // النص بلغات أخرى
+                    this.style.direction = 'ltr';
+                    this.style.textAlign = 'left';
                 }
             });
+        });
 
+        // بقية الكود الحالي
+        const buttons = document.querySelectorAll('.form-group button, .order-button');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, {
+            threshold: 0.5 // 50% من الزر يجب أن تكون مرئية في نافذة العرض
+        });
+
+        buttons.forEach(button => observer.observe(button));
+
+        const quantityDisplay = document.getElementById('quantity');
+        const quantityInput = document.getElementById('quantity-input');
+        const increaseButton = document.getElementById('increase');
+        const decreaseButton = document.getElementById('decrease');
+        const totalPriceDisplay = document.getElementById('total-price');
+
+        function updateTotalPrice() {
+            const currentQuantity = parseInt(quantityDisplay.textContent);
+            quantityInput.value = currentQuantity; // تحديث قيمة الحقل المخفي
+            let totalPriceText = '';
+            if (currentQuantity === 1) {
+                totalPriceText = '549 درهم';
+            } else if (currentQuantity === 2) {
+                totalPriceText = '999 درهم<br>عوض 1100 درهم';
+            } else if (currentQuantity === 3) {
+                totalPriceText = '1449 درهم<br>عوض 1650 درهم';
+            } else {
+                const totalPrice = 480 * currentQuantity;
+                totalPriceText = `${totalPrice} درهم`;
+            }
+            totalPriceDisplay.innerHTML = totalPriceText;
+        }
+
+        increaseButton.addEventListener('click', () => {
+            let currentQuantity = parseInt(quantityDisplay.textContent);
+            quantityDisplay.textContent = currentQuantity + 1;
             updateTotalPrice();
         });
 
+        decreaseButton.addEventListener('click', () => {
+            let currentQuantity = parseInt(quantityDisplay.textContent);
+            if (currentQuantity > 1) {
+                quantityDisplay.textContent = currentQuantity - 1;
+                updateTotalPrice();
+            }
+        });
+
+        updateTotalPrice();
+
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzMOWOfXNp8pahYt7RYcJX-bl_rB1FM-5H7qwTVKVmFg_wMHRH4EwTTHC8FPIb5nLeC/exec'; // Replace 'Your URL will be here' with the URL of your Google Apps Script
-        const form = document.forms['submit-to-google-sheet'];
         form.addEventListener('submit', e => {
             e.preventDefault();
             const errorMessage = document.getElementById('error-message');
@@ -611,6 +630,7 @@
                     submitButton.innerHTML = 'إضغط هنا للطلب'; // إعادة النص الأصلي للزر
                 });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
