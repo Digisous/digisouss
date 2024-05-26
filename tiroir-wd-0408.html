@@ -239,6 +239,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             opacity: 0; /* تأكد من أن الزر مخفي في البداية */
             transition: opacity 0.5s ease-in-out;
+			direction: rtl;
+			position: relative;
         }
 
         @keyframes shake {
@@ -300,6 +302,28 @@
             display: none; /* إخفاء الرسالة في البداية */
             margin-top: 20px;
         }
+		
+		/* أنماط زر التحميل */
+        .loading-spinner {
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border-left-color: #fff;
+            animation: spin 1s ease infinite;
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+			direction: rtl
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .btn-loading {
+            cursor: not-allowed;
+        }
+		
     </style>
     <!-- تضمين أيقونات Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -430,6 +454,11 @@
             </form>
         </div>
     </div>
+	
+	<!-- عنصر التحميل -->
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
@@ -441,6 +470,46 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+            const form = document.forms['submit-to-google-sheet'];
+            
+            // إضافة رسائل مخصصة للتحقق من صحة الحقول المطلوبة
+            form.name.addEventListener('invalid', function() {
+                this.setCustomValidity('الرجاء ملء هذا الحقل');
+            });
+            form.phone.addEventListener('invalid', function() {
+                this.setCustomValidity('الرجاء إدخال رقم هاتف صالح');
+            });
+            form.city.addEventListener('invalid', function() {
+                this.setCustomValidity('الرجاء إدخال المدينة');
+            });
+            form.address.addEventListener('invalid', function() {
+                this.setCustomValidity('الرجاء إدخال العنوان');
+            });
+
+            // إزالة الرسالة المخصصة عند محاولة إعادة إرسال النموذج
+            form.name.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+            form.phone.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+            form.city.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+            form.address.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+
+            // التحقق من رقم الهاتف
+            form.phone.addEventListener('input', function() {
+                if (this.value.length < 10) {
+                    this.setCustomValidity('رقم الهاتف غير صالح');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+
+            // بقية الكود الحالي
             const buttons = document.querySelectorAll('.form-group button, .order-button');
 
             const observer = new IntersectionObserver((entries) => {
@@ -496,13 +565,16 @@
 
             updateTotalPrice();
         });
-    </script>
-    <script>
+
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzMOWOfXNp8pahYt7RYcJX-bl_rB1FM-5H7qwTVKVmFg_wMHRH4EwTTHC8FPIb5nLeC/exec'; // Replace 'Your URL will be here' with the URL of your Google Apps Script
         const form = document.forms['submit-to-google-sheet'];
         form.addEventListener('submit', e => {
             e.preventDefault();
             const errorMessage = document.getElementById('error-message');
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true; // تعطيل زر الإرسال
+            submitButton.classList.add('btn-loading'); // إضافة فئة زر التحميل
+            submitButton.innerHTML = 'جاري الارسال... <span class="loading-spinner"></span>'; // تغيير النص وإضافة عنصر التحميل
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     console.log('Success!', response);
@@ -511,6 +583,9 @@
                 .catch(error => {
                     console.error('Error!', error.message);
                     errorMessage.style.display = 'block'; // إظهار رسالة الخطأ
+                    submitButton.disabled = false; // إعادة تفعيل زر الإرسال عند حدوث خطأ
+                    submitButton.classList.remove('btn-loading'); // إزالة فئة زر التحميل
+                    submitButton.innerHTML = 'إضغط هنا للطلب'; // إعادة النص الأصلي للزر
                 });
         });
     </script>
