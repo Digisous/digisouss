@@ -292,6 +292,14 @@
             color: white; /* تأكد من أن اللون لا يتغير */
             text-decoration: none; /* إزالة الخط السفلي */
         }
+
+        .error-message {
+            color: red;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            text-align: center;
+            display: none; /* إخفاء الرسالة في البداية */
+            margin-top: 20px;
+        }
     </style>
     <!-- تضمين أيقونات Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -385,7 +393,8 @@
     <div class="container-fluid">
         <div id="order-form" class="form-container" data-aos="fade-up">
             <p class="sub-text-form-top">التوصيل حتا لباب دارك <br>وماتخلص حتا توصل بالطلبية ديالك</p>
-            <form id="orderForm">
+            <form name="submit-to-google-sheet">
+                <!-- الحقول الحالية للاسم والهاتف والمدينة والعنوان -->
                 <div class="form-group">
                     <label for="name">*الاسم</label>
                     <input type="text" id="name" name="name" required />
@@ -402,6 +411,8 @@
                     <label for="address">*العنوان</label>
                     <input type="text" id="address" name="address" required />
                 </div>
+                <!-- حقل مخفي للكمية -->
+                <input type="hidden" id="quantity-input" name="quantity" value="1" />
                 <div class="form-group-2">
                     <div class="total-price" id="total-price">549 درهم</div>
                     <div class="quantity-wrapper">
@@ -415,6 +426,7 @@
                 <div class="form-group">
                     <button type="submit">إضغط هنا للطلب</button>
                 </div>
+                <div class="error-message" id="error-message">حدثت مشكلة أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.</div>
             </form>
         </div>
     </div>
@@ -427,6 +439,7 @@
         AOS.init({
             duration: 1000,
         });
+
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.form-group button, .order-button');
 
@@ -445,12 +458,14 @@
             buttons.forEach(button => observer.observe(button));
 
             const quantityDisplay = document.getElementById('quantity');
+            const quantityInput = document.getElementById('quantity-input');
             const increaseButton = document.getElementById('increase');
             const decreaseButton = document.getElementById('decrease');
             const totalPriceDisplay = document.getElementById('total-price');
 
             function updateTotalPrice() {
                 const currentQuantity = parseInt(quantityDisplay.textContent);
+                quantityInput.value = currentQuantity; // تحديث قيمة الحقل المخفي
                 let totalPriceText = '';
                 if (currentQuantity === 1) {
                     totalPriceText = '549 درهم';
@@ -480,40 +495,23 @@
             });
 
             updateTotalPrice();
-
-            document.getElementById('orderForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const city = document.getElementById('city').value;
-                const address = document.getElementById('address').value;
-                const quantity = document.getElementById('quantity').textContent;
-
-                fetch('https://script.google.com/macros/s/AKfycbyjs1Vx3SOga8p_5r76f05AbU7Y9BB_8PHAgQbbDEHgyIuGGeSrVLvfRE9LsyORiI6XKQ/exec', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name: name,
-                        phone: phone,
-                        city: city,
-                        address: address,
-                        quantity: quantity
-                    }),
+        });
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzMOWOfXNp8pahYt7RYcJX-bl_rB1FM-5H7qwTVKVmFg_wMHRH4EwTTHC8FPIb5nLeC/exec'; // Replace 'Your URL will be here' with the URL of your Google Apps Script
+        const form = document.forms['submit-to-google-sheet'];
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const errorMessage = document.getElementById('error-message');
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    console.log('Success!', response);
+                    window.location.href = 'thankyou.html'; // إعادة توجيه المستخدم إلى صفحة "شكراً لك"
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        alert('تم إرسال الطلب بنجاح!');
-                    } else {
-                        alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
-                    }
-                })
-                .catch((error) => {
-                    alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    errorMessage.style.display = 'block'; // إظهار رسالة الخطأ
                 });
-            });
         });
     </script>
 </body>
