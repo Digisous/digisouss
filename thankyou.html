@@ -86,7 +86,7 @@
             border-radius: 7px;
             font-family: 'Bahij-Bold', sans-serif;
             font-size: 1.5rem; /* تكبير حجم الخط */
-	    direction: rtl;
+            direction: rtl;
         }
         .whatsapp-button {
             background-color: #25D366;
@@ -101,7 +101,7 @@
             display: inline-block;
             transition: opacity 0.5s ease-in-out;
             text-decoration: none; /* إزالة الخط السفلي */
-	    direction: rtl;
+            direction: rtl;
         }
         .whatsapp-button:hover {
             background-color: #1EBE57;
@@ -109,23 +109,59 @@
             text-decoration: none; /* إزالة الخط السفلي */
         }
 
-	/* أنماط الفوتر */
-    footer {
-        background-color: #f9f9f9;
-        padding: 5px 20px;
-        text-align: center;
-        font-family: 'Bahij-SemiBold', sans-serif;
-        color: #333;
-        border-top: 1px solid #ddd;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-    .footer-logo {
-        max-width: 150px;
-        margin-bottom: 10px;
-    }
-	    
+        /* أنماط الفوتر */
+        footer {
+            background-color: #f9f9f9;
+            padding: 5px 20px;
+            text-align: center;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            border-top: 1px solid #ddd;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        /* استعلامات الوسائط للأجهزة اللوحية */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .navbar-brand {
+                font-size: 2rem; /* تكبير حجم الخط */
+            }
+            .highlighted-text {
+                font-size: 2rem; /* تكبير حجم الخط */
+            }
+            .additional-text {
+                font-size: 1.6rem; /* تكبير حجم الخط للنص الإضافي */
+            }
+            .whatsapp-button {
+                font-size: 1.4rem; /* تكبير حجم الخط للأزرار */
+            }
+        }
+
+        /* استعلامات الوسائط للأجهزة الحاسوبية */
+        @media (min-width: 1025px) {
+            .navbar-brand {
+                font-size: 2.5rem; /* تكبير حجم الخط */
+            }
+            .highlighted-text {
+                font-size: 2.5rem; /* تكبير حجم الخط */
+            }
+            .additional-text {
+                font-size: 1.8rem; /* تكبير حجم الخط للنص الإضافي */
+            }
+            .whatsapp-button {
+                font-size: 1.6rem; /* تكبير حجم الخط للأزرار */
+            }
+            .content {
+                max-width: 800px;
+                margin: 0 auto; /* توسيط المحتوى */
+                padding: 40px; /* زيادة الهوامش */
+            }
+        }
     </style>
     <!-- تضمين أيقونات Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -136,24 +172,23 @@
     </nav>
     
     <div class="content">
-	<div class="icon" data-aos="fade-down">
+        <div class="icon" data-aos="fade-down">
             <i class="fas fa-check-circle"></i>
         </div>
-	<div class="highlighted-text" data-aos="fade-up">
+        <div class="highlighted-text" data-aos="fade-up">
             شكراً لثقتك بنا!
         </div>
         <div class="additional-text" data-aos="fade-right">
             لقد تلقينا طلبك وسنتواصل معك في أقرب وقت لتأكيد طلبك.
         </div>
-		<a href="https://wa.me/رقم_هاتفك_هنا" class="whatsapp-button" data-aos="fade-left">
+        <a href="https://wa.me/رقم_هاتفك_هنا" class="whatsapp-button" data-aos="fade-left">
             <i class="fab fa-whatsapp"></i> تواصل معنا على واتساب
         </a>
-        
     </div>
 
     <footer>
-	<img src="tir-images/digisouss_logo.png" alt="عارك" class="footer-logo">
-	<p>جميع الحقوق محفوظة © 2024</p>
+        <img src="tir-images/digisouss_logo.png" alt="عارك" class="footer-logo">
+        <p>جميع الحقوق محفوظة © 2024</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -167,4 +202,3 @@
     </script>
 </body>
 </html>
-
