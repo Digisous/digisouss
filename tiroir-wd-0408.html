@@ -191,7 +191,7 @@
             border: 2px solid #FF8C00;
             border-radius: 5px;
             text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
-	    direction: rtl;
+            direction: rtl;
         }
         .quantity-wrapper {
             display: flex;
@@ -244,8 +244,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             opacity: 0; /* تأكد من أن الزر مخفي في البداية */
             transition: opacity 0.5s ease-in-out;
-			direction: rtl;
-			position: relative;
+            direction: rtl;
+            position: relative;
         }
 
         @keyframes shake {
@@ -349,7 +349,49 @@
         text-align: inherit;
         direction: inherit;
     }
-		
+
+    /* استعلامات الوسائط للأجهزة اللوحية */
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .navbar-brand {
+            font-size: 2rem; /* تكبير حجم الخط */
+        }
+        .highlighted-text {
+            font-size: 2rem; /* تكبير حجم الخط */
+        }
+        .sub-text {
+            font-size: 1.6rem; /* تكبير حجم الخط للنص الفرعي */
+        }
+        .sub-text-form-top, .sub-text-form-bottom {
+            font-size: 1.4rem; /* تكبير حجم الخط للنص الفرعي في النموذج */
+        }
+        .form-group button, .order-button {
+            font-size: 1.4rem; /* تكبير حجم الخط للأزرار */
+        }
+    }
+
+    /* استعلامات الوسائط للأجهزة الحاسوبية */
+    @media (min-width: 1025px) {
+        .navbar-brand {
+            font-size: 2.5rem; /* تكبير حجم الخط */
+        }
+        .highlighted-text {
+            font-size: 2.5rem; /* تكبير حجم الخط */
+        }
+        .sub-text {
+            font-size: 1.8rem; /* تكبير حجم الخط للنص الفرعي */
+        }
+        .sub-text-form-top, .sub-text-form-bottom {
+            font-size: 1.6rem; /* تكبير حجم الخط للنص الفرعي في النموذج */
+        }
+        .form-group button, .order-button {
+            font-size: 1.6rem; /* تكبير حجم الخط للأزرار */
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto; /* توسيط المحتوى */
+            padding: 40px; /* زيادة الهوامش */
+        }
+    }
     </style>
     <!-- تضمين أيقونات Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
