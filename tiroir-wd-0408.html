@@ -39,11 +39,13 @@
             font-family: 'Bahij-SemiLight';
             src: url('fonts/Bahij_TheSansArabic-SemiLight.ttf') format('truetype');
         }
-        body {
+        body, html {
             font-family: 'Bahij-Plain', sans-serif;
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
+            overflow-x: hidden; /* لإخفاء التمرير الأفقي */
+            width: 100%; /* تأكد من أن العرض يكون 100% */
         }
         .navbar {
             background-color: #FF8C00; /* لون جذاب */
@@ -158,6 +160,8 @@
             width: 100%; /* تأكد من أن العرض يكون 100% */
             box-sizing: border-box; /* لضمان أن الحشوة تحتسب ضمن العرض الكامل */
             margin: 0; /* إزالة الهامش */
+            max-width: 100%; /* تأكد من أن العرض لا يتجاوز 100% */
+            overflow-x: hidden; /* لإخفاء التمرير الأفقي */
         }
         .form-group {
             margin-bottom: 15px;
