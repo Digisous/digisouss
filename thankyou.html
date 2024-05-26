@@ -45,6 +45,9 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .navbar {
             background-color: #FF8C00; /* لون جذاب */
@@ -56,6 +59,11 @@
             color: white;
         }
         .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
         .thank-you-message {
@@ -119,6 +127,7 @@
             color: #333;
             border-top: 1px solid #ddd;
             /*position: fixed;*/
+            position: relative;
             bottom: 0;
             width: 100%;
         }
