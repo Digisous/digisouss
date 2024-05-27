@@ -1,70 +1,253 @@
 body {
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    direction: rtl;
-    text-align: right;
+    background-color: #ec1b23;
+    font-family: 'Noto Kufi Arabic', sans-serif;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+.logos {
+    margin: 5vh 0 10vh;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.hero-section {
-    background: url('background.jpg') no-repeat center center/cover;
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logose,
+.divlogo {
     text-align: center;
 }
 
-.hero-section .hero-content {
-    max-width: 600px;
+.logo2 {
+    width: 200px;
 }
 
-.hero-section .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    color: #fff;
-    background: #007BFF;
-    text-decoration: none;
-    border-radius: 5px;
+.logo {
+    width: 550px;
 }
 
-#about, #services {
-    padding: 50px 20px;
+.section {
+    margin-top: -50px;
+}
+
+h2 {
+    margin-top: -0.8%;
     text-align: center;
+    font-size: 3rem;
+    color: whitesmoke;
+    font-weight: 400;
 }
 
-.service {
-    margin: 20px 0;
-}
-
-footer {
-    background: #333;
-    color: #fff;
+h3 {
     text-align: center;
-    padding: 10px 0;
+    font-size: 1.8rem;
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+h4 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+.social {
+    text-align: center;
+    margin-top: 1vh;
+}
+
+.social .soc {
+    width: 45px;
+    padding-left: 1vw;
+    transition: 0.4s;
+}
+
+.social .face {
+    width: 45px;
+    transition: 0.4s;
+}
+
+.social .soc:hover {
+    transform: scale(1.1);
+}
+
+.social .face:hover {
+    transform: scale(1.1);
+}
+
+
+@media (max-width:1600px) {
+
+
+    .logo2 {
+        width: 180px;
+    }
+
+    .logo {
+        width: 500px;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    .social .soc {
+        width: 43px;
+    }
+
+    .social .face {
+        width: 43px;
+    }
+}
+
+@media (max-width:1100px) {
+
+
+    .logo2 {
+        width: 160px;
+    }
+
+    .logo {
+        width: 430px;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .social .soc {
+        width: 41px;
+    }
+
+    .social .face {
+        width: 41px;
+    }
+}
+
+@media (max-width:900px) {
+
+    .logo2 {
+        width: 150px;
+    }
+
+    .logo {
+        width: 380px;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .social .soc {
+        width: 40px;
+    }
+
+    .social .face {
+        width: 40px;
+    }
+}
+
+@media (max-width:650px) {
+
+    .logo2 {
+        width: 140px;
+    }
+
+    .logo {
+        width: 330px;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    .social .soc {
+        width: 37px;
+    }
+
+    .social .face {
+        width: 37px;
+    }
+}
+
+@media (max-width:490px) {
+
+    .logo2 {
+        width: 130px;
+    }
+
+    .logo {
+        width: 280px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+
+    .social .soc {
+        width: 35px;
+    }
+
+    .social .face {
+        width: 35px;
+    }
+}
+
+@media (max-width:400px) {
+
+    .logo2 {
+        width: 130px;
+    }
+
+    .logo {
+        width: 250px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 0.9rem;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+
+    }
+
+    .social .soc {
+        width: 33px;
+    }
+
+    .social .face {
+        width: 33px;
+    }
 }
