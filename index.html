@@ -1,220 +1,89 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درج النقـــود الأتومــاتيكـي</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Bahij-Black';
-            src: url('fonts/Bahij_TheSansArabic-Black.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-Bold';
-            src: url('fonts/Bahij_TheSansArabic-Bold.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-ExtraBold';
-            src: url('fonts/Bahij_TheSansArabic-ExtraBold.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-ExtraLight';
-            src: url('fonts/Bahij_TheSansArabic-ExtraLight.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-Light';
-            src: url('fonts/Bahij_TheSansArabic-Light.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-Plain';
-            src: url('fonts/Bahij_TheSansArabic-Plain.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-SemiBold';
-            src: url('fonts/Bahij_TheSansArabic-SemiBold.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Bahij-SemiLight';
-            src: url('fonts/Bahij_TheSansArabic-SemiLight.ttf') format('truetype');
-        }
-        body {
-            font-family: 'Bahij-Plain', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            background-color: #FF8C00; /* لون جذاب */
-            color: white;
-        }
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-family: 'Bahij-Bold', sans-serif;
-            color: white;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        .stars {
-            color: #FF4500; /* لون جديد للنجوم */
-            font-size: 1.5rem;
-        }
-        .description {
-            margin-top: 10px;
-            font-size: 1.2rem;
-            font-family: 'Bahij-SemiBold', sans-serif;
-            color: #333;
-        }
-        .product-image {
-            width: 100%;
-            max-width: 400px;
-            margin-top: 20px;
-        }
-		.full-width-image {
-		width: 100%;
-		height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
-}
-        .additional-description {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-family: 'Bahij-SemiBold', sans-serif;
-            color: #333;
-        }
-        .highlighted-text {
-            background-color: #FF8C00; /* لون الشريط */
-            color: white;
-            width: 100%;
-            display: inline-block;
-            padding: 7px 7px; /* تعديل الهوامش */
-            margin: 10px 0; /* الهوامش العلوية والسفلية */
-            border-radius: 7px;
-            font-family: 'Bahij-Bold', sans-serif;
-            font-size: 1.5rem; /* تكبير حجم الخط */
-        }
-        .sub-text {
-            font-family: 'Bahij-SemiBold', sans-serif;
-            color: #333;
-			margin: 30px 0px;
-            font-size: 1.4rem; /* تكبير حجم الخط للنص الفرعي */
-			direction: rtl; /* لضبط اتجاه النص من اليمين إلى اليسار */
-			unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
-        }
-        .image-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 60px 60px;
-        }
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 2px 
-			solid #FF8C00; /* نفس لون الشريط */
-        }
-        .divider::before {
-            margin-right: 10px;
-        }
-        .divider::after {
-            margin-left: 10px;
-        }
-        .diamond {
-            width: 10px;
-            height: 10px;
-            background-color: #FF8C00; /* نفس لون الشريط */
-            transform: rotate(45deg);
-        }
-    </style>
-    <!-- تضمين أيقونات Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Noto+Kufi+Arabic:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>DIGI SOUSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico">
+	<!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '440544262015096');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=440544262015096&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand mx-auto" href="#">درج النقـــود الأتومــاتيكـي</a>
-    </nav>
-
-    <div class="content">
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+    <div class="logos">
+        <div class="logose"><img class="logo2" src="images/DigiSouss_Logo-ai.png" alt="logo 2"></div>
+        <div class="divlogo"><img class="logo" src="images/logo.png" alt="logo"></div>
+    </div>
+    <div class="main">
+        <div class="section">
+            <h2>... قريبا</h2>
+            <h3>أهلا و مرحبا بك في موقع ديجي سوس , الموقع قيد الانشاء</h3>
+            <h4>تواصلوا معنا الان</h4>
         </div>
-        <div class="additional-description">
-            <p>الحل المثالي باش تنظم فلوسك وترتاح في التعامل مع الزبناء ديالك</p>
-        </div>
-        <img src="images/image_1.png" alt="صورة المنتج" class="product-image">
-
-        <div class="divider">
-            <div class="diamond"></div>
-        </div>
-        
-        <div class="additional-description">
-            <span class="highlighted-text">تصميم معدني عالي الجودة <br>شديد التحمل</span>
-            <p class="sub-text">مقاسات الدرج مثالية، كيصلح لجميع المساحات وكيوفر لك نظام ترتيب محكم</p>
-        </div>
-        <div class="image-container">
-            <img src="images/image_3.png" alt="مقاسات المنتج" class="product-image">
-        </div>
-        <div class="divider">
-            <div class="diamond"></div>
-        </div>
-        <div class="additional-description">
-            <span class="highlighted-text">أماكن منظمة لمختلف الفئات النقدية</span>
-            <p class="sub-text"></p>
-        </div>
-		<div class="image-container">
-            <img src="images/image_8.png" alt="صورة المنتج" class="full-width-image">
-        </div>
-		<div class="additional-description">
-            <p class="sub-text">الدرج الاتوماتيكي فيه أربعة أماكن مرتبة ومناسبة للأوراق النقدية</p>
-        </div>
-		<div class="additional-description">
-            <p class="sub-text">وثمانية أماكن للعملات المعدنية، يمكن ليك تعدلها تزيد وتنقص فالمساحة ديالها وترتبها حسب حاجتك</p>
-        </div>
-		<div class="image-container">
-            <img src="images/image_6.png" alt="اماكن النقود" class="product-image">
-        </div>
-		<div class="divider">
-            <div class="diamond"></div>
-        </div>
-		<div class="additional-description">
-            <span class="highlighted-text">فتحة الشيكات</span>
-            <p class="sub-text"></p>
-        </div>
-		<div class="additional-description">
-            <p class="sub-text">فتحة مخصصة لإدخال الشيكات والكمبيالات بسهولة وأمان</p>
-        </div>
-		<div class="image-container">
-            <img src="images/image_7.png" alt="فتحة الشيكات" class="full-width-image">
-        </div>
-		<div class="divider">
-            <div class="diamond"></div>
-        </div>
-		<div class="additional-description">
-            <span class="highlighted-text">RJ11 منفذ كابل</span>
-            <p class="sub-text"></p>
-        </div>
-		<div class="additional-description">
-		    <p class="sub-text">منفذ RJ11 باش توصل الدرج بالطابعة، لي كايخلي الدرج  إتحل تلقائيًا عند طبع إيصال الدفع</p>
-        </div>
-		<div class="image-container">
-            <img src="images/image_9.png" alt="فتحة الشيكات" class="product-image">
-        </div>
-		<div class="image-container">
-            <img src="images/image_10.png" alt="فتحة الشيكات" class="product-image">
+        <div class="social">
+            <a href="https://web.facebook.com/digisouss" target="_blank"><img id="face" class="soc"
+                    src="images/face.png" alt="instagram"></a>
+            <a href="https://www.instagram.com/digisouss" target="_blank"><img id="inst" class="soc"
+                    src="images/insta.png" alt="instagram"></a>
+            <a href="https://api.whatsapp.com/send/?phone=212672675047" target="_blank"><img id="whats" class="soc"
+                    src="images/whats.png" alt="whatsapp"></a>
+            <a href="#" target="_blank" title="Ait Melloul"><img id="gps" class="soc" src="images/location.png"
+                    alt="gps"></a>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let a = document.getElementById("face");
+        let b = document.getElementById("inst");
+        let c = document.getElementById("whats");
+        let d = document.getElementById("gps");
+        a.onmouseenter = function () {
+            a.src = "images/face2.png";
+        }
+        a.onmouseleave = function () {
+            a.src = "images/face.png";
+        }
+        b.onmouseenter = function () {
+            b.src = "images/insta2.png";
+        }
+        b.onmouseleave = function () {
+            b.src = "images/insta.png";
+        }
+        c.onmouseenter = function () {
+            c.src = "images/whats2.png";
+        }
+        c.onmouseleave = function () {
+            c.src = "images/whats.png";
+        }
+        d.onmouseenter = function () {
+            d.src = "images/location2.png";
+        }
+        d.onmouseleave = function () {
+            d.src = "images/location.png";
+        }
+    </script>
 </body>
+
 </html>
