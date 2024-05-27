@@ -685,7 +685,7 @@
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     console.log('Success!', response);
-                    window.location.href = 'thankyou.html'; // إعادة توجيه المستخدم إلى صفحة "شكراً لك"
+                    window.location.href = 'thankyou'; // إعادة توجيه المستخدم إلى صفحة "شكراً لك"
                 })
                 .catch(error => {
                     console.error('Error!', error.message);
