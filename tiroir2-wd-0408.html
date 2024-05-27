@@ -1,1 +1,895 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>درج النقـــود الأتومــاتيكـي</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Bahij-Black';
+            src: url('fonts/Bahij_TheSansArabic-Black.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Bold';
+            src: url('fonts/Bahij_TheSansArabic-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-ExtraBold';
+            src: url('fonts/Bahij_TheSansArabic-ExtraBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-ExtraLight';
+            src: url('fonts/Bahij_TheSansArabic-ExtraLight.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Light';
+            src: url('fonts/Bahij_TheSansArabic-Light.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Plain';
+            src: url('fonts/Bahij_TheSansArabic-Plain.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-SemiBold';
+            src: url('fonts/Bahij_TheSansArabic-SemiBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-SemiLight';
+            src: url('fonts/Bahij_TheSansArabic-SemiLight.ttf') format('truetype');
+        }
+        body, html {
+            font-family: 'Bahij-Plain', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* لإخفاء التمرير الأفقي */
+            width: 100%; /* تأكد من أن العرض يكون 100% */
+        }
+        .navbar {
+            background-color: #FF8C00; /* لون جذاب */
+            color: white;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-family: 'Bahij-Bold', sans-serif;
+            color: white;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .stars {
+            color: #FF4500; /* لون جديد للنجوم */
+            font-size: 1.5rem;
+        }
+        .description {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+        .full-width-image {
+            width: 100%;
+            height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+        }
+        .additional-description {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+        }
+        .highlighted-text {
+            background-color: #FF8C00; /* لون الشريط */
+            color: white;
+            width: 100%;
+            display: inline-block;
+            padding: 7px 7px; /* تعديل الهوامش */
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-radius: 7px;
+            font-family: 'Bahij-Bold', sans-serif;
+            font-size: 1.5rem; /* تكبير حجم الخط */
+        }
+        .sub-text {
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            margin: 30px 0px;
+            font-size: 1.4rem; /* تكبير حجم الخط للنص الفرعي */
+            direction: rtl; /* لضبط اتجاه النص من اليمين إلى اليسار */
+            unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
+        }
+        .sub-text-form-top {
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-size: 1.2rem; /* تكبير حجم الخط للنص الفرعي */
+            direction: rtl; /* لضبط اتجاه النص من اليمين إلى اليسار */
+            unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
+            text-align: center;
+        }
+        .sub-text-form-bottom {
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            margin: 20px 0px;
+            font-size: 15px; /* تكبير حجم الخط للنص الفرعي */
+            direction: rtl; /* لضبط اتجاه النص من اليمين إلى اليسار */
+            unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
+            text-align: right;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 10px;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 2px solid #FF8C00; /* نفس لون الشريط */
+        }
+        .divider::before {
+            margin-right: 10px;
+        }
+        .divider::after {
+            margin-left: 10px;
+        }
+        .diamond {
+            width: 10px;
+            height: 10px;
+            background-color: #FF8C00; /* نفس لون الشريط */
+            transform: rotate(45deg);
+        }
+        .form-container {
+            background-color: #ffcf94;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* تأكد من أن العرض يكون 100% */
+            box-sizing: border-box; /* لضمان أن الحشوة تحتسب ضمن العرض الكامل */
+            margin: 0; /* إزالة الهامش */
+            max-width: 100%; /* تأكد من أن العرض لا يتجاوز 100% */
+            overflow-x: hidden; /* لإخفاء التمرير الأفقي */
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
+        }
+        .form-group-2 {
+            margin-bottom: 15px;
+            display: flex;
+            font-weight: bold;
+            align-items: center;
+            justify-content: space-between; /* لضمان أن الكمية والسعر يظهران في نفس السطر */
+            margin: 30px 0px;
+        }
+        .form-group-2 label {
+            margin-bottom: 0;
+            margin-left: 10px;
+            text-align: right; /* تأكد من محاذاة النص لليمين */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #FF8C00;
+            border-radius: 5px;
+            text-align: right; /* هذه السطر يجعل التسمية محاذية لليمين */
+            direction: rtl;
+        }
+        .quantity-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-button {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 20px;
+            border-radius: 5px;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .quantity-display {
+            font-size: 18px;
+            padding: 0 10px;
+            text-align: center;
+        }
+        .total-price {
+            font-size: 16px;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            margin-top: 10px; /* إضافة هامش علوي */
+            direction: rtl; /* لضبط اتجاه النص من اليمين إلى اليسار */
+            unicode-bidi: embed; /* لضمان محاذاة النص بشكل صحيح */
+            text-align: right;
+            width: 100%; /* تأكد من أن السعر يأخذ العرض الكامل */
+            margin-right: 10px;
+        }
+        .form-group button {
+            background-color: #FF8C00;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* تأكد من أن الزر مخفي في البداية */
+            transition: opacity 0.5s ease-in-out;
+            direction: rtl;
+            position: relative;
+        }
 
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+
+        .form-group button.animate {
+            animation: shake 0.5s ease-in-out 2;
+            opacity: 1; /* تأكد من أن الزر يظهر عندما يبدأ التحريك */
+        }
+
+        .form-group button:hover {
+            background-color: #e07b00;
+        }
+
+        /* زر الطلب في المنتصف */
+        .order-button {
+            background-color: #FF8C00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 90px;
+            display: inline-block;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+            text-decoration: none; /* إزالة الخط السفلي */
+        }
+
+        .order-button.animate {
+            animation: shake 0.5s ease-in-out 2;
+            opacity: 1; /* تأكد من أن الزر يظهر عندما يبدأ التحريك */
+        }
+
+        .order-button:hover {
+            background-color: #e07b00;
+            color: white; /* تأكد من أن اللون لا يتغير */
+            text-decoration: none; /* إزالة الخط السفلي */
+        }
+
+        .error-message {
+            color: red;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            text-align: center;
+            display: none; /* إخفاء الرسالة في البداية */
+            margin-top: 20px;
+        }
+		
+		/* أنماط زر التحميل */
+        .loading-spinner {
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border-left-color: #fff;
+            animation: spin 1s ease infinite;
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+			direction: rtl
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .btn-loading {
+            cursor: not-allowed;
+        }
+
+	/* أنماط الفوتر */
+	footer {
+	background-color: #f9f9f9;
+        padding: 10px 20px;
+        text-align: center;
+        font-family: 'Bahij-SemiBold', sans-serif;
+        color: #333;
+        border-top: 1px solid #ddd;
+        margin-top: 20px;
+    }
+    .footer-logo {
+        max-width: 150px;
+        margin-bottom: 10px;
+    }
+
+    /* أنماط الإدخال لضبط الاتجاه بناءً على اللغة */
+    input {
+        text-align: inherit;
+        direction: inherit;
+    }
+
+    /* استعلامات الوسائط للأجهزة اللوحية */
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .navbar-brand {
+            font-size: 2rem; /* تكبير حجم الخط */
+        }
+        .highlighted-text {
+            font-size: 2rem; /* تكبير حجم الخط */
+        }
+        .sub-text {
+            font-size: 1.6rem; /* تكبير حجم الخط للنص الفرعي */
+        }
+        .sub-text-form-top, .sub-text-form-bottom {
+            font-size: 1.4rem; /* تكبير حجم الخط للنص الفرعي في النموذج */
+        }
+        .form-group button, .order-button {
+            font-size: 1.4rem; /* تكبير حجم الخط للأزرار */
+        }
+    }
+
+    /* استعلامات الوسائط للأجهزة الحاسوبية */
+    @media (min-width: 1025px) {
+        .navbar-brand {
+            font-size: 2.5rem; /* تكبير حجم الخط */
+        }
+        .highlighted-text {
+            font-size: 2.5rem; /* تكبير حجم الخط */
+        }
+        .sub-text {
+            font-size: 1.8rem; /* تكبير حجم الخط للنص الفرعي */
+        }
+        .sub-text-form-top, .sub-text-form-bottom {
+            font-size: 1.6rem; /* تكبير حجم الخط للنص الفرعي في النموذج */
+        }
+        .form-group button, .order-button {
+            font-size: 1.6rem; /* تكبير حجم الخط للأزرار */
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto; /* توسيط المحتوى */
+            padding: 40px; /* زيادة الهوامش */
+        }
+    }
+    </style>
+    <!-- تضمين أيقونات Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand mx-auto" href="#">درج النقـــود الأتومــاتيكـي</a>
+    </nav>
+
+    <div class="content">
+
+        <div class="stars" data-aos="fade-in">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="additional-description" data-aos="fade-right">
+            <p>الحل المثالي باش تنظم فلوسك وترتاح في التعامل مع الزبناء ديالك</p>
+        </div>
+        <img src="tir-images/img_1.png" alt="صورة المنتج" class="product-image" data-aos="fade-up" />
+        <div class="additional-description" data-aos="fade-left">
+            <span class="highlighted-text">
+                تصميم معدني عالي الجودة <br />
+                شديد التحمل
+            </span>
+            <div class="divider" data-aos="fade-in">
+                <div class="diamond"></div>
+            </div>
+            <p class="sub-text">مقاسات الدرج مثالية، كيصلح لجميع المساحات وكيوفر لك نظام ترتيب محكم</p>
+        </div>
+        <div class="image-container" data-aos="fade-up">
+            <img src="tir-images/img_3.png" alt="مقاسات المنتج" class="product-image" />
+        </div>
+        <!-- زر الطلب في المنتصف -->
+        <a href="#order-form" class="order-button" data-aos="fade-right">إضغط هنا للطلب</a>
+        <div class="additional-description" data-aos="fade-right">
+            <span class="highlighted-text">أماكن منظمة لمختلف الفئات النقدية</span>
+            <div class="divider" data-aos="fade-in">
+                <div class="diamond"></div>
+            </div>
+        </div>
+        <div class="image-container" data-aos="fade-up">
+            <img src="tir-images/img_8.png" alt="صورة المنتج" class="product-image" />
+        </div>
+        <div class="additional-description" data-aos="fade-left">
+            <p class="sub-text">الدرج الاتوماتيكي فيه أربعة أماكن مرتبة ومناسبة للأوراق النقدية</p>
+        </div>
+        <div class="additional-description" data-aos="fade-right">
+            <p class="sub-text">وثمانية أماكن للعملات المعدنية، يمكن ليك تعدلها تزيد وتنقص فالمساحة ديالها وترتبها حسب حاجتك</p>
+        </div>
+        <div class="image-container" data-aos="fade-up">
+            <img src="tir-images/img_6.png" alt="اماكن النقود" class="product-image" />
+        </div>
+
+        <div class="additional-description" data-aos="fade-left">
+            <span class="highlighted-text">فتحة الشيكات</span>
+            <div class="divider" data-aos="fade-in">
+                <div class="diamond"></div>
+            </div>
+        </div>
+        <div class="additional-description" data-aos="fade-right">
+            <p class="sub-text">فتحة مخصصة لإدخال الشيكات والكمبيالات بسهولة وأمان</p>
+        </div>
+        <div class="image-container" data-aos="fade-up">
+            <img src="tir-images/img_7.png" alt="فتحة الشيكات" class="full-width-image" />
+        </div>
+        <a href="#order-form" class="order-button" data-aos="fade-left">إضغط هنا للطلب</a>
+
+        <div class="additional-description" data-aos="fade-right">
+            <span class="highlighted-text">RJ11 منفذ كابل</span>
+            <div class="divider" data-aos="fade-in">
+                <div class="diamond"></div>
+            </div>
+        </div>
+        <div class="additional-description" data-aos="fade-left">
+            <p class="sub-text">منفذ RJ11 باش توصل الدرج بالطابعة، لي كايخلي الدرج إتحل تلقائيًا عند طبع إيصال الدفع</p>
+        </div>
+        <div class="image-container" data-aos="fade-up">
+            <img src="tir-images/img_9.png" alt="فتحة الشيكات" class="product-image" />
+        </div>
+        <div class="image-container" data-aos="fade-up">
+            <img src="tir-images/img_10.png" alt="فتحة الشيكات" class="product-image" />
+        </div>
+	    <div class="additional-description" data-aos="fade-right">
+            <span class="highlighted-text">إستمارة ملئ الطلب</span>
+		    <div class="divider" data-aos="fade-in">
+			    <div class="diamond"></div>
+		    </div>
+		    <p class="sub-text">درج النقود الاتوماتيكي<br> 549 درهم فقط <br>التوصيل حتا لباب دارك</p>
+	    </div>
+    <div class="container-fluid">
+        <div id="order-form" class="form-container" data-aos="fade-up">
+            <p class="sub-text-form-top">لطلب المنتج سجل المعلومات ديالك بعناية</p>
+            <form name="submit-to-google-sheet">
+                <!-- الحقول الحالية للاسم والهاتف والمدينة والعنوان -->
+                <div class="form-group">
+                    <label for="name">*الاسم</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">*رقم الهاتف</label>
+                    <input type="tel" id="phone" name="phone" required />
+                </div>
+                <div class="form-group">
+                    <label for="city">*المدينة</label>
+                    <input type="text" id="city" name="city" required />
+                </div>
+                <div class="form-group">
+                    <label for="address">*العنوان</label>
+                    <input type="text" id="address" name="address" required />
+                </div>
+                <!-- حقل مخفي للكمية -->
+                <input type="hidden" id="quantity-input" name="quantity" value="1" />
+                <div class="form-group-2">
+                    <div class="total-price" id="total-price">549 درهم</div>
+                    <div class="quantity-wrapper">
+			<div class="quantity-button" id="increase">+</div>
+                        <div class="quantity-display" id="quantity">1</div>
+			<div class="quantity-button" id="decrease">-</div>
+                    </div>
+                    <label for="quantity">*الكمية</label>
+                </div>
+                <p class="sub-text-form-bottom">* التوصيل حتا لباب دارك، ماغاتزيد والو على هاد الثمن</p>
+                <div class="form-group">
+                    <button type="submit">إضغط هنا للطلب</button>
+                </div>
+                <div class="error-message" id="error-message">حدثت مشكلة أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.</div>
+            </form>
+        </div>
+    </div>
+	
+	<!-- عنصر التحميل -->
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <footer>
+    <img src="tir-images/digisouss_logo.png" alt="عارك" class="footer-logo">
+    <p>جميع الحقوق محفوظة © 2024</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 1000,
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.forms['submit-to-google-sheet'];
+        
+        // إضافة رسائل مخصصة للتحقق من صحة الحقول المطلوبة
+        form.name.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء ملء هذا الحقل');
+        });
+        form.phone.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء إدخال رقم هاتف صالح');
+        });
+        form.city.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء إدخال المدينة');
+        });
+        form.address.addEventListener('invalid', function() {
+            this.setCustomValidity('الرجاء إدخال العنوان');
+        });
+
+        // إزالة الرسالة المخصصة عند محاولة إعادة إرسال النموذج
+        form.name.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+        form.phone.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+        form.city.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+        form.address.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+
+        // التحقق من رقم الهاتف
+        form.phone.addEventListener('input', function() {
+            if (this.value.length < 10) {
+                this.setCustomValidity('رقم الهاتف غير صالح');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // ضبط اتجاه النص داخل الحقول بناءً على المحتوى المدخل
+        const inputs = document.querySelectorAll('input[type="text"], input[type="tel"]');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                const value = this.value;
+                if (/^[\u0600-\u06FF]/.test(value)) { // إذا كان النص باللغة العربية
+                    this.style.direction = 'rtl';
+                    this.style.textAlign = 'right';
+                } else { // النص بلغات أخرى
+                    this.style.direction = 'ltr';
+                    this.style.textAlign = 'left';
+                }
+            });
+        });
+
+        // بقية الكود الحالي
+        const buttons = document.querySelectorAll('.form-group button, .order-button');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, {
+            threshold: 0.5 // 50% من الزر يجب أن تكون مرئية في نافذة العرض
+        });
+
+        buttons.forEach(button => observer.observe(button));
+
+        const quantityDisplay = document.getElementById('quantity');
+        const quantityInput = document.getElementById('quantity-input');
+        const increaseButton = document.getElementById('increase');
+        const decreaseButton = document.getElementById('decrease');
+        const totalPriceDisplay = document.getElementById('total-price');
+
+        function updateTotalPrice() {
+            const currentQuantity = parseInt(quantityDisplay.textContent);
+            quantityInput.value = currentQuantity; // تحديث قيمة الحقل المخفي
+            let totalPriceText = '';
+            if (currentQuantity === 1) {
+                totalPriceText = '549 درهم';
+            } else if (currentQuantity === 2) {
+                totalPriceText = '999 درهم<br>عوض 1100 درهم';
+            } else if (currentQuantity === 3) {
+                totalPriceText = '1449 درهم<br>عوض 1650 درهم';
+            } else {
+                const totalPrice = 480 * currentQuantity;
+                totalPriceText = `${totalPrice} درهم`;
+            }
+            totalPriceDisplay.innerHTML = totalPriceText;
+        }
+
+        increaseButton.addEventListener('click', () => {
+            let currentQuantity = parseInt(quantityDisplay.textContent);
+            quantityDisplay.textContent = currentQuantity + 1;
+            updateTotalPrice();
+        });
+
+        decreaseButton.addEventListener('click', () => {
+            let currentQuantity = parseInt(quantityDisplay.textContent);
+            if (currentQuantity > 1) {
+                quantityDisplay.textContent = currentQuantity - 1;
+                updateTotalPrice();
+            }
+        });
+
+        updateTotalPrice();
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzMOWOfXNp8pahYt7RYcJX-bl_rB1FM-5H7qwTVKVmFg_wMHRH4EwTTHC8FPIb5nLeC/exec'; // Replace 'Your URL will be here' with the URL of your Google Apps Script
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const errorMessage = document.getElementById('error-message');
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true; // تعطيل زر الإرسال
+            submitButton.classList.add('btn-loading'); // إضافة فئة زر التحميل
+            submitButton.innerHTML = 'جاري الارسال... <span class="loading-spinner"></span>'; // تغيير النص وإضافة عنصر التحميل
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    console.log('Success!', response);
+                    window.location.href = 'thankyou.html'; // إعادة توجيه المستخدم إلى صفحة "شكراً لك"
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    errorMessage.style.display = 'block'; // إظهار رسالة الخطأ
+                    submitButton.disabled = false; // إعادة تفعيل زر الإرسال عند حدوث خطأ
+                    submitButton.classList.remove('btn-loading'); // إزالة فئة زر التحميل
+                    submitButton.innerHTML = 'إضغط هنا للطلب'; // إعادة النص الأصلي للزر
+                });
+        });
+    });
+</script>
+</body>
+</html>
+
+
+هذا الكود خاص ب صفحة شكرا لك : 
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شكراً لك</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Bahij-Black';
+            src: url('fonts/Bahij_TheSansArabic-Black.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Bold';
+            src: url('fonts/Bahij_TheSansArabic-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-ExtraBold';
+            src: url('fonts/Bahij_TheSansArabic-ExtraBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-ExtraLight';
+            src: url('fonts/Bahij_TheSansArabic-ExtraLight.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Light';
+            src: url('fonts/Bahij_TheSansArabic-Light.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-Plain';
+            src: url('fonts/Bahij_TheSansArabic-Plain.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-SemiBold';
+            src: url('fonts/Bahij_TheSansArabic-SemiBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Bahij-SemiLight';
+            src: url('fonts/Bahij_TheSansArabic-SemiLight.ttf') format('truetype');
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Bahij-Plain', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            background-color: #FF8C00; /* لون جذاب */
+            color: white;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-family: 'Bahij-Bold', sans-serif;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .thank-you-message {
+            margin-top: 50px;
+            font-size: 2rem;
+            font-family: 'Bahij-Bold', sans-serif;
+            color: #333;
+        }
+        .additional-text {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+        }
+        .icon {
+            font-size: 5rem;
+            color: #FF8C00;
+            margin-top: 20px;
+        }
+        .highlighted-text {
+            background-color: #FF8C00; /* لون الشريط */
+            color: white;
+            width: 100%;
+            display: inline-block;
+            padding: 7px 7px; /* تعديل الهوامش */
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-radius: 7px;
+            font-family: 'Bahij-Bold', sans-serif;
+            font-size: 1.5rem; /* تكبير حجم الخط */
+            direction: rtl;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 30px;
+            display: inline-block;
+            transition: opacity 0.5s ease-in-out;
+            text-decoration: none; /* إزالة الخط السفلي */
+            direction: rtl;
+        }
+        .whatsapp-button:hover {
+            background-color: #1EBE57;
+            color: white; /* تأكد من أن اللون لا يتغير */
+            text-decoration: none; /* إزالة الخط السفلي */
+        }
+
+        /* أنماط الفوتر */
+        footer {
+            background-color: #f9f9f9;
+            padding: 5px 20px;
+            text-align: center;
+            font-family: 'Bahij-SemiBold', sans-serif;
+            color: #333;
+            border-top: 1px solid #ddd;
+            width: 100%;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        /* استعلامات الوسائط للأجهزة اللوحية */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .navbar-brand {
+                font-size: 2rem; /* تكبير حجم الخط */
+            }
+            .highlighted-text {
+                font-size: 2rem; /* تكبير حجم الخط */
+            }
+            .additional-text {
+                font-size: 1.6rem; /* تكبير حجم الخط للنص الإضافي */
+            }
+            .whatsapp-button {
+                font-size: 1.4rem; /* تكبير حجم الخط للأزرار */
+            }
+        }
+
+        /* استعلامات الوسائط للأجهزة الحاسوبية */
+        @media (min-width: 1025px) {
+            .navbar-brand {
+                font-size: 2.5rem; /* تكبير حجم الخط */
+            }
+            .highlighted-text {
+                font-size: 2.5rem; /* تكبير حجم الخط */
+            }
+            .additional-text {
+                font-size: 1.8rem; /* تكبير حجم الخط للنص الإضافي */
+            }
+            .whatsapp-button {
+                font-size: 1.6rem; /* تكبير حجم الخط للأزرار */
+            }
+            .content {
+                max-width: 800px;
+                margin: 0 auto; /* توسيط المحتوى */
+                padding: 40px; /* زيادة الهوامش */
+            }
+        }
+    </style>
+    <!-- تضمين أيقونات Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand mx-auto" href="#">درج النقـــود الأتومــاتيكـي</a>
+    </nav>
+
+    <div class="content">
+        <div class="icon" data-aos="fade-down">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="highlighted-text" data-aos="fade-up">
+            شكراً لثقتك بنا!
+        </div>
+        <div class="additional-text" data-aos="fade-right">
+            لقد تلقينا طلبك وسنتواصل معك في أقرب وقت لتأكيد طلبك.
+        </div>
+        <a href="https://wa.me/212672675047" class="whatsapp-button" data-aos="fade-left">
+            <i class="fab fa-whatsapp"></i> تواصل معنا على واتساب
+        </a>
+    </div>
+
+    <footer>
+        <img src="tir-images/digisouss_logo.png" alt="عارك" class="footer-logo">
+        <p>جميع الحقوق محفوظة © 2024</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+        });
+    </script>
+</body>
+</html>
